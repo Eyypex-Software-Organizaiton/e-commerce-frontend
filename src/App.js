@@ -1,9 +1,11 @@
+import ProductsDetails from './pages/ProductsDetails/ProductsDetails'
+
 function App() {
   return (
     <div>
-      <h1>Fatih test</h1>
+      <ProductsDetails />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
