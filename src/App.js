@@ -1,11 +1,15 @@
-import ProductsDetails from './pages/ProductsDetails/ProductsDetails'
+import AppRouter from "./router/AppRouter";
+
+{
+  /* <img src="./assets/mymassa.png" width="60%" /> */
+}
 
 function App() {
   return (
-    <div>
-      <ProductsDetails />
-    </div>
-  )
+    <>
+      <AppRouter />
+    </>
+  );
 }
 
-export default App
+export default App;
