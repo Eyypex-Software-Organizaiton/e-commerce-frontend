@@ -1,8 +1,14 @@
+import AppRouter from "./router/AppRouter";
+
+{
+  /* <img src="./assets/mymassa.png" width="60%" /> */
+}
+
 function App() {
   return (
-    <div>
-      <h1>REACT</h1>
-    </div>
+    <>
+      <AppRouter />
+    </>
   );
 }
 
