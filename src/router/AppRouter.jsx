@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
 import Home from '../pages/home/Home'
+import ProductsDetails from '../pages/ProductsDetails/ProductsDetails'
 
 const AppRouter = () => {
   return (
@@ -10,6 +11,7 @@ const AppRouter = () => {
     <Navbar/>
     <Routes>
 <Route path='/' element={<Home/>}/>
+<Route path='/details' element={<ProductsDetails/>}/>
 
 
     </Routes>
