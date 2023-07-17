@@ -1,11 +1,12 @@
-import ProductsDetails from './pages/ProductsDetails/ProductsDetails'
+import BasketDetail from "./components/basket/BasketDetail";
+import BasketSummary from "./components/basket/BasketSummary";
 
 function App() {
   return (
     <div>
-      <ProductsDetails />
+      <BasketDetail />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
