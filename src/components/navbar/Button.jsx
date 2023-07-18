@@ -6,7 +6,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 const Button = () => {
   return (
-   <div className='flex gap-5 text-[20px]'>
+   <div className='flex gap-5 text-[20px] cursor-pointer'>
      <AiOutlineShoppingCart/>
 <AiOutlineUser/>
 <BiUserPlus/>

@@ -1,19 +1,19 @@
  export  const links = [
-    // {
-    //   name: "MASA SANDALYE TAKIM",
-    //   submenu: true,
-    //   sublinks: [
-    //     {
+    {
+      name: "MASA SANDALYE TAKIM",
+      submenu: true,
+      sublinks: [
+        {
          
-    //       sublink: [
-    //         { name: "AHŞAP AYAKLI TAKIMLAR", link: "/" },
-    //         { name: "METAL AYAKLI TAKIMLAR", link: "/" },
-    //         { name: "YUVARLAK / KARE MASA TAKIMLARI", link: "/" },
+          sublink: [
+            { name: "AHŞAP AYAKLI TAKIMLAR", link: "/" },
+            { name: "METAL AYAKLI TAKIMLAR", link: "/" },
+            { name: "YUVARLAK / KARE MASA TAKIMLARI", link: "/" },
            
-    //       ],
-    //     },
-    //   ],
-    // },
+          ],
+        },
+      ],
+    },
     { name: "MASALAR" ,   submenu: true,
     sublinks: [
       {
