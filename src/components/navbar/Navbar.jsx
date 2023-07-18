@@ -25,11 +25,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white">
-      <div className="flex items-center font-medium justify-around">
+    <nav className="bg-white " >
+      <div className="flex items-center font-medium justify-around ">
         <img
-          src="./assets/mymassa.png"
-          className="md:cursor-pointer h-[60px] "
+          src="./assets/ecommercee.png"
+          className="md:cursor-pointer h-[90px] "
         />
         <div
           className=" absolute top-0 left-0 text-3xl cursor-pointer "

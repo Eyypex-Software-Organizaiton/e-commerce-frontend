@@ -44,7 +44,7 @@ const Navlink = () => {
 //       },
 //     ],},
 //     { name: "BENCH" },
-//     { name: "METAL OTURMA TAKIMLARI" },
+//     { name: "METAL OTURMA TAKIMLARI" }, 
 //     { name: "TV ÜNİTESİ" },
 //   ];
 
@@ -52,7 +52,7 @@ const Navlink = () => {
     <>
       {links.map((item) => (
         
-          <div className=" px-3 text-left md:cursor-pointer group hover:bg-gray-500 py-4">
+          <div className=" px-3 text-left md:cursor-pointer group hover:bg-gray-500 hover:text-white py-4 transition-all">
             <h1 className="py-7  ">{item.name}</h1>
             {item.submenu && (
               <div>
@@ -71,7 +71,7 @@ const Navlink = () => {
                           <li className="text-sm text-gray-600 my-2.5 ">
                             <Link
                               to={slink.link}
-                              className="hover:text-primary"
+                              className="hover:text-black"
                             >
                               {slink.name}
                             </Link>
