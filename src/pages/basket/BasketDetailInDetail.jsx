@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import DeleteBasketModal from "./DeleteBasketModal";
 
-const BasketDetailInDetail = ({ item }) => {
+const BasketDetailInDetail = ({ item, index, setBasketData, basketData }) => {
   const [number, setNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
 
-  const handleDelete = (e) => {
-    console.log(e.target);
-    e.target.closest(".product").remove();
+  const handleDelete = (itemID) => {
+    const img = basketData.filter((data) => data.id !== itemID);
+    setBasketData(img);
+  };
+  const modalDelete = (id) => {
+    const img = basketData.filter((data) => data.id !== id);
+    setBasketData(img);
   };
 
   const handleDecrease = (e) => {
@@ -28,7 +32,9 @@ const BasketDetailInDetail = ({ item }) => {
         <DeleteBasketModal
           openModal={openModal}
           setOpenModal={setOpenModal}
-          handleDelete={handleDelete}
+          modalDelete={modalDelete}
+          item={item}
+          basketData={basketData}
         />
       )}
       <div className="flex px-4 product ">
@@ -44,7 +50,7 @@ const BasketDetailInDetail = ({ item }) => {
               <div className="mr-1 ">
                 <RiDeleteBin6Line />
               </div>
-              <button onClick={(e) => handleDelete(e)} className="text-sm">
+              <button onClick={() => handleDelete(item.id)} className="text-sm">
                 Sepetten Sil
               </button>
             </button>
@@ -65,12 +71,12 @@ const BasketDetailInDetail = ({ item }) => {
           <div className="text-right">
             <div className="flex flex-col">
               <div>
-                <span className="line-through text-sm">1.999,00</span>
+                <span className="line-through text-sm">1.999,00 </span>
                 <span className="text-sm">TL</span>
               </div>
               <div className="text-lg">
-                <span className="font-bold">1.869,00</span>
-                <span>TL</span>
+                <span className="font-bold">1.869,00 </span>
+                <span className="font-bold">TL</span>
               </div>
             </div>
             <div className="text-sm">
