@@ -1,10 +1,9 @@
-import BasketDetail from "./components/basket/BasketDetail";
-import BasketSummary from "./components/basket/BasketSummary";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
     <div>
-      <BasketDetail />
+      <AppRouter />
     </div>
   );
 }
