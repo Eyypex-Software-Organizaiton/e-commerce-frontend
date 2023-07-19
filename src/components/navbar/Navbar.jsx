@@ -1,31 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Navlink from "./Navlink";
-import Button from "./Button";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { links } from "./Mylinks";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Navlink from './Navlink'
+import NavbarIcons from './Button'
 
 const Navbar = () => {
-  const data = [
-    {
-      name: "masa sandalye",
-      submenu: true,
-      sublinks: [
-        {
-          sublink: [
-            { name: "MDF MASALAR", link: "/" },
-            { name: "SUNTALAM MASALAR", link: "/" },
-            { name: "KARE / YUVARLAK MASALAR", link: "/" },
-          ],
-        },
-      ],
-    },
-  ];
-
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
-    <nav className="bg-white " >
+    <nav className="bg-white ">
       <div className="flex items-center font-medium justify-around ">
         <img
           src="./assets/ecommercee.png"
@@ -42,13 +24,13 @@ const Navbar = () => {
           <Navlink />
         </ul>
         <div className="md:block hidden justify-between">
-          <Button />
+          <NavbarIcons />
         </div>
         {/* Mobile App */}
         <ul
           className={`
         md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4
-        duration-500 ${open ? "left-0" : " left-[-100%]"}
+        duration-500 ${open ? 'left-0' : ' left-[-100%]'}
             `}
         >
           <li>
@@ -58,12 +40,12 @@ const Navbar = () => {
           </li>
           <Navlink />
           <div className="py-5">
-            <Button />
+            <NavbarIcons />
           </div>
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

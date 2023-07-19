@@ -1,4 +1,4 @@
-import ProductsDetails from "./pages/ProductsDetails/ProductsDetails";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
