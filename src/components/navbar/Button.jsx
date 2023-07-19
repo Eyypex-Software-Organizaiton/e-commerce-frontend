@@ -4,7 +4,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { BiUserPlus } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const Button = () => {
+const NavbarIcons = () => {
   return (
    <div className='flex gap-5 text-[20px] cursor-pointer'>
      <AiOutlineShoppingCart/>
@@ -15,4 +15,4 @@ const Button = () => {
   )
 }
 
-export default Button
+export default NavbarIcons
