@@ -5,7 +5,7 @@ import AppRouter from "./router/AppRouter";
 }
 
 function App() {
-  console.log("object");
+  console.log("object ");
   return (
     <>
       <AppRouter />
