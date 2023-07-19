@@ -1,10 +1,10 @@
-import AppRouter from "./router/AppRouter";
+import ProductsDetails from "./pages/ProductsDetails/ProductsDetails";
 
 function App() {
   return (
-    <div>
+    <>
       <AppRouter />
-    </div>
+    </>
   );
 }
 
