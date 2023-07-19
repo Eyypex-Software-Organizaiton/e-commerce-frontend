@@ -1,8 +1,4 @@
-import AppRouter from "./router/AppRouter";
-
-{
-  /* <img src="./assets/mymassa.png" width="60%" /> */
-}
+import ProductsDetails from "./pages/ProductsDetails/ProductsDetails";
 
 function App() {
   return (
