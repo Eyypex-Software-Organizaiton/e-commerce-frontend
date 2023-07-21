@@ -2,7 +2,7 @@ import React from 'react'
 
 const CarouselItem = () => {
   return (
-    <div className=' '>
+    <div>
       <div id="app">
         <div class="f-carousel" id="myCarousel">
           <div
