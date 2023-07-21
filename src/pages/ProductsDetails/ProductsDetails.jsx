@@ -1,7 +1,7 @@
+import ProductInformation from "../../components/productdetails/ProductInformation";
+import ProductsCard from "../../components/productdetails/ProductsCard";
+import ProductsCarousel from "../../components/productdetails/ProductsCarousel";
 
-import ProductsCarousel from './ProductsCarousel'
-import ProductsCard from './ProductsCard';
-import ProductInformation from './ProductInformation';
 
 const ProductsDetails = () => {
   return (

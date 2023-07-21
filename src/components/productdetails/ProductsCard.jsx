@@ -1,7 +1,7 @@
 import React from "react";
 import { SlBasket } from "react-icons/sl";
 import { FaTruck } from "react-icons/fa";
-import { Dropdown } from "flowbite-react";
+
 const ProductsCard = () => {
   return (
     <div className="">
@@ -9,11 +9,27 @@ const ProductsCard = () => {
         Blanca 6231 2'li Sandalye
       </h1>
       <div>
-        <div className="text-center m-2">
-          <p className="text-3xl">10.317,59 TL</p>
-          <p>
-            Stok Kodu:<span>xxxxxxxxx</span>
-          </p>
+        <div className="flex flex-col text-center m-2">
+          <div className="flex mr-2">
+            <p className="text-red-600 text-3xl line-through">50.317,59 TL</p>
+            <p className="text-3xl">10.317,59 TL</p>
+          </div>
+
+          <select
+            id="small"
+            class="block  text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 w-20"
+          >
+            <option selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
           <p>
             Garanti Süresi: <span>24 Ay</span>
           </p>
@@ -25,12 +41,7 @@ const ProductsCard = () => {
         </div>
         <div>
           <div className="border-gray-300 bg-slate-300 text-black inline-block absolute rounded-lg">
-            <Dropdown label="Adet">
-              <Dropdown.Item>1</Dropdown.Item>
-              <Dropdown.Item>2</Dropdown.Item>
-              <Dropdown.Item>3</Dropdown.Item>
-              <Dropdown.Item>4 </Dropdown.Item>
-            </Dropdown>
+        
           </div>
           <div className=" bg-slate-100 h-20 w-[75%] text-center m-auto rounded-lg ">
             <p className="font-bold">Renk</p>
