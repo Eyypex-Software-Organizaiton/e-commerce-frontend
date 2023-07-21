@@ -4,7 +4,7 @@ import React from 'react'
 const HeaderCarousel = () => {
   return (
     <div>
-        <div id="default-carousel" className="relative w-full" data-carousel="slide">
+        <div id="default-carousel" className="relative w-full cursor-pointer" data-carousel="slide">
   {/* Carousel wrapper */}
   <div className="relative h-56 overflow-hidden md:h-[620px]">
     {/* Item 1 */}

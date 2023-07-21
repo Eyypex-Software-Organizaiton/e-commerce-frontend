@@ -142,12 +142,12 @@ const Footer = () => {
         </footer>
       </div>
       <div className="flex justify-evenly ">
-        <img className="text-center" src="./assets/bankimg.png" alt="bankimg" />
+        <img className="text-center" src="./assets/iyzico.png" alt="bankimg" />
       </div>
       <div className="flex justify-evenly bg-gray-300 border-gray-600 m-12">
         <p>
           {" "}
-          © 2023 <span className="font-bold">mymassa.com</span> - Tüm Hakları
+          © 2023 <span className="font-bold cursor-pointer">nadidehome.com</span> - Tüm Hakları
           Saklıdır.
         </p>
       </div>
