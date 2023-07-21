@@ -17,8 +17,8 @@ const AppRouter = () => {
       <Breadcrumbs />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path=':slug' element={<ProductsList />} />
-        <Route path='/details' element={<ProductsDetails />} />
+        <Route path='/category' element={<ProductsList />} />
+        <Route path='/:slug' element={<ProductsDetails />} />
         <Route path="/basket" element={<BasketDetail />} />
       </Routes>
     <Footer/>
