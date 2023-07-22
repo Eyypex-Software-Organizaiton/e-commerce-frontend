@@ -8,8 +8,8 @@ const BasketDetail = () => {
   const [basketData, setBasketData] = useState(images);
 
   return (
-    <>
-      <div className="flex flex-col ">
+    <div className="flex ">
+      <div className="flex flex-col basis-3/4">
         <p className="pl-2 mb-4">SEPET DETAYI</p>
         {basketData.map((item, i) => (
           <BasketDetailInDetail
@@ -20,10 +20,10 @@ const BasketDetail = () => {
           />
         ))}
       </div>
-      <div>
+      <div className="basis-1/4">
         <BasketSummary />
       </div>
-    </>
+    </div>
   );
 };
 

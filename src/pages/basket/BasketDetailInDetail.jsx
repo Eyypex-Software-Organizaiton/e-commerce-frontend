@@ -37,7 +37,7 @@ const BasketDetailInDetail = ({ item, index, setBasketData, basketData }) => {
           basketData={basketData}
         />
       )}
-      <div className="flex px-4 product ">
+      <div className="flex px-4 product border-2 ">
         <div className="mr-4">
           <img className="w-40 h-40 " src={item.img} alt="orderInBasket" />
         </div>
