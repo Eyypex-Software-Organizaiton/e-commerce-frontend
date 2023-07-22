@@ -15,7 +15,7 @@ const AppRouter = () => {
 
 
     </Routes>
-    <Footer/>
+    {/* <Footer/> */}
     </>
     
   )
