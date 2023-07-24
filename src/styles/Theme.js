@@ -12,6 +12,7 @@ export const theme = {
     alice_blue: '#F0FBFF',
     alto: '#D9D9D9',
     black_secondary: '#3C4043',
+    grey: '#e1e1e1',
   },
   font: {
     primary: "'Roboto', sans-serif",
