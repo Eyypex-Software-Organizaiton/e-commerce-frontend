@@ -22,7 +22,9 @@ const ProductsList = () => {
     const elements = document.querySelectorAll('.icon')
 
     elements.forEach((element) => {
+      console.log(element)
       const filter = element.getAttribute('filter')
+      console.log(filter)
       productList.classList.remove('md:grid-cols-' + filter)
       element.classList.remove('icon-active')
       productList.classList.add('md:grid-cols-' + e)
@@ -31,15 +33,11 @@ const ProductsList = () => {
   }
   const filterFunction = (e) => {
     const val = e.target.value
-    if (val === 'artan') {
-      setData(handleSortByPrice())
-    } else if (val === 'azalan') {
-      setData(handleSortByPriceReverse())
-    } else if (val === 'a-z') {
-      setData(handleSortByName())
-    } else if (val === 'z-a') {
-      setData(handleSortByNameReverse())
-    }
+    val === 'artan' && setData(handleSortByPrice())
+    val === 'azalan' && setData(handleSortByPriceReverse())
+    val === 'a-z' && setData(handleSortByName())
+    val === 'z-a' && setData(handleSortByNameReverse())
+    val === '' && setData(initialValue)
   }
   const handleSortByPrice = () => {
     const sortedData = [...data].sort(
@@ -65,7 +63,6 @@ const ProductsList = () => {
     if (filter) {
       setData(sortedData)
     } else {
-      
       setData(initialValue)
     }
   }
