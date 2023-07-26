@@ -1,90 +1,79 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { links } from "./Mylinks";
+import { useState } from "react";
 
 const Navlink = () => {
-//   const links = [
-//     {
-//       name: "MASA SANDALYE TAKIM",
-//       submenu: true,
-//       sublinks: [
-//         {
-         
-//           sublink: [
-//             { name: "AHŞAP AYAKLI TAKIMLAR", link: "/" },
-//             { name: "METAL AYAKLI TAKIMLAR", link: "/" },
-//             { name: "YUVARLAK / KARE MASA TAKIMLARI", link: "/" },
-           
-//           ],
-//         },
-//       ],
-//     },
-//     { name: "MASALAR" ,   submenu: true,
-//     sublinks: [
-//       {
-        
-//         sublink: [
-//           { name: "MDF MASALAR", link: "/" },
-//           { name: "SUNTALAM MASALAR", link: "/" },
-//           { name: "KARE / YUVARLAK MASALAR", link: "/" },
-          
-//         ],
-//       },
-//     ], },
-//     { name: "SANDALYELER" ,    submenu: true,
-//     sublinks: [
-//       {
-        
-//         sublink: [
-//           { name: "AHŞAP AYAKLI SANDALYELER", link: "/" },
-//           { name: "METAL AYAKLI SANDALYELER", link: "/" },
-//           { name: "BAR SANDALYELERİ", link: "/" },
-          
-//         ],
-//       },
-//     ],},
-//     { name: "BENCH" },
-//     { name: "METAL OTURMA TAKIMLARI" }, 
-//     { name: "TV ÜNİTESİ" },
-//   ];
+  const [heading, setHeading] = useState("");
+  const [subHeading, setSubHeading] = useState("");
 
   return (
     <>
       {links.map((item) => (
-        
+        <div>
           <div className=" px-3 text-left md:cursor-pointer group hover:bg-gray-500 hover:text-white py-4 transition-all">
-            <h1 className="py-7  ">{item.name}</h1>
+            <h1
+              className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
+              onClick={() => {
+                heading !== item.name ? setHeading(item.name) : setHeading("");
+                setSubHeading("");
+              }}
+            >
+              {item.name}
+              <span className="text-xl md:hidden">
+                <ion-icon
+                  name={`${
+                    heading === item.name ? "chevron-up" : "chevron-down"
+                  }`}
+                ></ion-icon>
+              </span>
+              {/* <span className="text-xl md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                <ion-icon name="chevron-down"></ion-icon>
+              </span> */}
+            </h1>
             {item.submenu && (
               <div>
-                <div className="absolute top-20 pr-8  hidden group-hover:block hover:block ">
-                    <div className="py-[13px] ">
-                        <div className="w-4 h-4 left-3 hidden absolute mt-2 bg-white rotate-45 "></div>
-
-                    </div>
-                  <div className="bg-white p-3.5 ">
+                <div className="absolute top-20 w-[300px] pr-7 hidden group-hover:md:block hover:md:block ">
+                  <div className="py-[13px] ">
+                    <div className="w-4 h-4 left-3 hidden absolute mt-2 bg-white rotate-45 "></div>
+                  </div>
+                  <div className="bg-white p-5">
                     {item.sublinks.map((mysublinks) => [
                       <div>
-                        <h1 className="text-lg font-semibold ">
-                          {mysublinks.Head}
-                        </h1>
                         {mysublinks.sublink.map((slink) => (
-                          <li className="text-sm text-gray-600 my-2.5 ">
-                            <Link
-                              to={slink.link}
-                              className="hover:text-black"
-                            >
+                          <li className="text-sm text-gray-600 my-2">
+                            <Link to={slink.link} className="hover:text-black">
                               {slink.name}
                             </Link>
                           </li>
                         ))}
-                      </div>
+                      </div>,
                     ])}
                   </div>
                 </div>
               </div>
             )}
           </div>
-        
+
+          <div className={`${heading === item.name ? "md:hidden" : "hidden"}`}>
+            {item.sublinks.map((slink) => (
+              <div>
+                <div>
+                  <h1>
+                    {/* {slink.Head} */}
+                    <div>
+                      {slink.sublink.map((slink) => (
+                        <li className="py-3 pl-14">
+                          <Link to={slink.link}>{slink.name}</Link>
+                        </li>
+                      ))}
+                    </div>
+                  </h1>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       ))}
     </>
   );
