@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <HeaderCarousel />
       <Card />
-      {/* <HeaderSearch /> */}
+      <HeaderSearch />
     </>
   );
 };
