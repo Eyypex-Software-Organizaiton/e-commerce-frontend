@@ -5,7 +5,8 @@ import { Button, Modal } from "flowbite-react";
 export default function DeleteBasketModal({
   setOpenModal,
   openModal,
-  handleDelete,
+  modalDelete,
+  item,
 }) {
   //   const [openModal, setOpenModal] = useState(false);
   //   const props = { openModal, setOpenModal };
@@ -32,9 +33,9 @@ export default function DeleteBasketModal({
         </Modal.Body>
         <Modal.Footer>
           <Button
-            onClick={(e) => {
+            onClick={() => {
               setOpenModal(false);
-              handleDelete(e);
+              modalDelete(item.id);
             }}
           >
             I accept

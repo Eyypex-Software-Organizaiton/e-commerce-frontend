@@ -1,17 +1,17 @@
+import ProductInformation from "../../components/productdetails/ProductInformation";
+import ProductsCard from "../../components/productdetails/ProductsCard";
+import ProductsCarousel from "../../components/productdetails/ProductsCarousel";
 
-import ProductsCarousel from './ProductsCarousel'
-import ProductsCard from './ProductsCard';
-import ProductInformation from './ProductInformation';
 
 const ProductsDetails = () => {
   return (
     <>
   
     <div className="flex gap-2  w-[100%]">
-      <div className="w-[50%] m-8">
+      <div className="w-[60%] m-8">
         <ProductsCarousel />
       </div>
-      <div className="w-[50%]">
+      <div className="w-[40%]">
    <ProductsCard/>
       </div>
     </div> 
