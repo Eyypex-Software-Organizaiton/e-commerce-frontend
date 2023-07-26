@@ -6,6 +6,22 @@ import Button from "./Button";
 import { links } from "./Mylinks";
 
 const Navbar = () => {
+  const data = [
+    {
+      name: "masa sandalye",
+      submenu: true,
+      sublinks: [
+        {
+          sublink: [
+            { name: "MDF MASALAR", link: "/" },
+            { name: "SUNTALAM MASALAR", link: "/" },
+            { name: "KARE / YUVARLAK MASALAR", link: "/" },
+          ],
+        },
+      ],
+    },
+  ];
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -28,25 +44,25 @@ const Navbar = () => {
         <ul className="md:flex hidden uppercase items-center gap-2 text-[12px] font-serif  text-slate-700 font-semibold md:bg-top z-50 ">
           <Navlink />
         </ul>
-        <div className=" justify-between">
+        <div className="md:block hidden justify-between">
           <Button />
         </div>
 
         {/* Mobile App */}
         <ul
           className={`
-          md:hidden bg-white fixed w-[400px] top-0 overflow-y-auto bottom-0 py-24 pl-4
-           ${open ? "left-0 z-40" : "left-[-100%] "}
-          `}
+        md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4
+        duration-500 ${open ? "left-0" : " left-[-100%]"}
+            `}
         >
           <Navlink />
-          <div className="py-5 ">
+          <div className="py-5">
             <Button />
           </div>
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
