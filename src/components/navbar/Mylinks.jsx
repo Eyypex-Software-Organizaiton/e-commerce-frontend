@@ -6,9 +6,12 @@ export const links = [
       {
         // Head: "Topwear",
         sublink: [
-          { name: "AHŞAP AYAKLI TAKIMLAR", link: "/" },
-          { name: "METAL AYAKLI TAKIMLAR", link: "/" },
-          { name: "YUVARLAK / KARE MASA TAKIMLARI", link: "/" },
+          { name: "AHŞAP AYAKLI TAKIMLAR", link: "/ahsapayaklitakimlar" },
+          { name: "METAL AYAKLI TAKIMLAR", link: "/metalayaklitakimlar" },
+          {
+            name: "YUVARLAK / KARE MASA TAKIMLARI",
+            link: "/yuvarlakkaremasatakimlar",
+          },
         ],
       },
     ],

@@ -1,31 +1,46 @@
 import React from "react";
 
+import {data} from "./CardData";
+import {test} from "./CardData";
+
 const Card = () => {
   return (
-    <div>
-      <div className="flex m-2 cursor-pointer">
-        <div className="p-4 ">
-          <img className="rounded-lg" src="./assets/card1.jpg" alt="" />
-        </div>
-        <div className="p-4">
+    <>
+      <div className="relative grid grid-cols-3 gap-4 m-4 ">
+      {data.map((item) => (
+        <div >
+          <div className="flex justify-between ">
+            <img src={item.img} alt="img1" className="rounded-md" />
+            <div className="absolute">
+              <h2>{item.name}</h2>
+              <p className="">{item.text}</p>
+              <button className="bg-white ">{item.button}</button>
+            </div>
+          </div>
           
-          <img className="rounded-lg" src="./assets/card2.jpg" alt="" />
         </div>
-        <div className="p-4">
-          <img className="rounded-lg" src="./assets/card3.jpg" alt="" />
-        </div>
-      </div>
-
-      <div className="flex m-2 cursor-pointer ">
-        <div className="p-2">
-          <img className="rounded-lg" src="./assets/card4.jpg" alt="" />
-        </div>
-        <div className="p-2">
-          <img className="rounded-lg" src="./assets/card5.jpg" alt="" />
-        </div>
-      </div>
+      ))}
+     
     </div>
+   <div className="relative grid grid-cols-2 gap-4 m-4">
+    {test.map((data)=>(
+      <div >
+      <div className="flex justify-between ">
+        <img src={data.img1} alt="img1" className="rounded-md " />
+        <div className="absolute">
+          <h2>{data.name1}</h2>
+          <p className="">{data.text1}</p>
+          <button className="bg-white ">{data.button1}</button>
+        </div>
+      </div>
+      
+    </div>
+    ))}
+   </div>
+    </>
+  
   );
 };
 
 export default Card;
+

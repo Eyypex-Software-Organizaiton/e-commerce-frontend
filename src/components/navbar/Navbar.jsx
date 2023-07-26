@@ -14,9 +14,9 @@ const Navbar = () => {
         <div className=" p-8 z-50 md:w-auto w-full flex justify-between">
           <div className=''>
             <img
-            src="./assets/ecommercee.png"
+            src="./assets/NadideLogo.png"
             alt="logo"
-            className=" cursor-pointer h-[60px] "
+            className=" cursor-pointer h-[80px] "
           />
           </div>
           
