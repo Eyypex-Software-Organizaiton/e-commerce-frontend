@@ -11,16 +11,14 @@ import BasketDetail from '../pages/basket/BasketDetail'
 const AppRouter = () => {
   return (
     <>
-      <Navbar />
-
-      <Breadcrumbs />
-      <Routes>
-        <Route path='/' element={<Home />} />
+    <Navbar/>
+    <Routes>
+    <Route path='/' element={<Home />} />
         {/* <Route path='/category' element={<ProductsList />} /> */}
         <Route path='/:slug' element={<ProductsDetails />} />
         <Route path='/basket' element={<BasketDetail />} />
-      </Routes>
-      <Footer />
+    </Routes>
+    <Footer/>
     </>
   )
 }
