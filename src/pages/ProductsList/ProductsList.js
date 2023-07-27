@@ -22,9 +22,7 @@ const ProductsList = () => {
     const elements = document.querySelectorAll('.icon')
 
     elements.forEach((element) => {
-      console.log(element)
       const filter = element.getAttribute('filter')
-      console.log(filter)
       productList.classList.remove('md:grid-cols-' + filter)
       element.classList.remove('icon-active')
       productList.classList.add('md:grid-cols-' + e)

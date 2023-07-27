@@ -19,6 +19,7 @@ export const links = [
     submenu: true,
     sublinks: [
       {
+        // Head: "Topwear",
         sublink: [
           { name: 'MDF MASALAR', link: '/' },
           { name: 'SUNTALAM MASALAR', link: '/' },
@@ -33,6 +34,7 @@ export const links = [
     submenu: true,
     sublinks: [
       {
+        // Head: "Topwear",
         sublink: [
           { name: 'AHŞAP AYAKLI SANDALYELER', link: '/' },
           { name: 'METAL AYAKLI SANDALYELER', link: '/' },
@@ -41,7 +43,28 @@ export const links = [
       },
     ],
   },
-  { name: 'BENCH', link: 'category/bench' },
-  { name: 'METAL OTURMA TAKIMLARI', link: 'category/metal_oturma_takimlari' },
-  { name: 'TV ÜNİTESİ', link: 'category/tv_ünitesi' },
-]
+  {
+    name: "BENCH",
+    sublinks: [
+      {
+        sublink: [],
+      },
+    ],
+  },
+  {
+    name: "METAL OTURMA TAKIMLARI",
+    sublinks: [
+      {
+        sublink: [],
+      },
+    ],
+  },
+  {
+    name: "TV ÜNİTESİ",
+    sublinks: [
+      {
+        sublink: [],
+      },
+    ],
+  },
+];
