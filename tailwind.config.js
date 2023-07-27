@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-
-  
-
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
 
@@ -21,9 +18,23 @@ module.exports = {
         },
       },
       fontFamily: {
-        'sans': ['Roboto', 'sans-serif'],
+        sans: ["Roboto", "sans-serif"],
       },
     },
+    screens: {
+      xs: "0px",
+      // => @media (min-width: 0) { ... }
+      sm: "576px",
+      // => @media (min-width: 576px) { ... }
+      md: "768px",
+      // => @media (min-width: 960px) { ... }
+      lg: "992px",
+      // => @media (min-width: 992px) { ... }
+      xl: "1200px",
+      // => @media (min-width: 1200px) { ... }
+      xxl: "1400px",
+      // => @media (min-width: 1400px) { ... }
+    },
   },
-  plugins: [require('flowbite/plugin')],
-}
+  plugins: [require("flowbite/plugin")],
+};

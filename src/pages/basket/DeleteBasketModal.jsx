@@ -1,47 +1,47 @@
 "use client";
 
 import { Button, Modal } from "flowbite-react";
+import { AiOutlineWarning } from "react-icons/ai";
 
 export default function DeleteBasketModal({
   setOpenModal,
   openModal,
   modalDelete,
-  item,
+  dataItem,
 }) {
-  //   const [openModal, setOpenModal] = useState(false);
-  //   const props = { openModal, setOpenModal };
-
   return (
     <>
-      <Modal show={openModal === true} onClose={() => setOpenModal(false)}>
-        <Modal.Header>Terms of Service</Modal.Header>
+      <Modal
+        className="flex"
+        show={openModal === true}
+        onClose={() => setOpenModal(false)}
+      >
+        <Modal.Header className="w-[full] flex justif-between"></Modal.Header>
         <Modal.Body>
+          <div className="flex justify-center">
+            <AiOutlineWarning className="w-20 h-20 text-red-600 flex justify-end  " />
+          </div>
           <div className="space-y-6">
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              With less than a month to go before the European Union enacts new
-              consumer privacy laws for its citizens, companies around the world
-              are updating their terms of service agreements to comply.
-            </p>
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              The European Union’s General Data Protection Regulation (G.D.P.R.)
-              goes into effect on May 25 and is meant to ensure a common set of
-              data rights in the European Union. It requires organizations to
-              notify users as soon as possible of high-risk data breaches that
-              could personally affect them.
+            <p className="text-center leading-relaxed text-gray-500 dark:text-gray-400">
+              Ürünü sepetten silmek istediğinize emin misiniz?
             </p>
           </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="flex justify-center">
           <Button
             onClick={() => {
               setOpenModal(false);
-              modalDelete(item.id);
+              modalDelete(dataItem.id);
             }}
           >
-            I accept
+            Ürünü Sil
           </Button>
-          <Button color="gray" onClick={() => setOpenModal(false)}>
-            Decline
+          <Button
+            className="text-black bg-white border-2 border-black hover:text-white hover:bg-black px-5"
+            color="black"
+            onClick={() => setOpenModal(false)}
+          >
+            İptal
           </Button>
         </Modal.Footer>
       </Modal>
