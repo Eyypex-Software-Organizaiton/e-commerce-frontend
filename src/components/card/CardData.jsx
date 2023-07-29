@@ -4,21 +4,21 @@ export const data = [
     name: "Sandalye",
     text: "Yeni gelen ürünlerimizi keşfedin",
     button: "İNCELE",
-    img: "./assets/card1.jpg",
+    img: "./assets/card1.jpeg",
   },
   {
     id: 2,
     name: "Masa",
     text: "Yeni gelen ürünlerimizi keşfedin",
     button: "İNCELE",
-    img: "./assets/card2.jpg",
+    img: "./assets/card2.jpeg",
   },
   {
     id: 3,
     name: "Tv Sehpası",
     text: "Yeni gelen ürünlerimizi keşfedin",
     button: "İNCELE",
-    img: "./assets/card3.jpg",
+    img: "./assets/card3.jpeg",
   },
 ];
 
@@ -28,13 +28,13 @@ export const test = [
     name1: "Bahçe Seti",
     text1: "Yeni gelen ürünlerimizi keşfedin",
     button1: "İNCELE",
-    img1: "./assets/card4.jpg",
+    img1: "./assets/card4.jpeg",
   },
   {
     id: 5,
     name1: "Masa Takımı",
     text1: "Yeni gelen ürünlerimizi keşfedin",
     button1: "İNCELE",
-    img1: "./assets/card5.jpg",
+    img1: "./assets/card5.jpeg",
   },
 ];
