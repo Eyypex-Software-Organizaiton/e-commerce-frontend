@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import './Breadcrumbs.css'
 
 const Breadcrumbs = () => {
   const location = useLocation()
-  console.log(location)
+  // console.log(location)
   let currentLink = ''
 
   const crumbs = location.pathname
@@ -20,7 +21,7 @@ const Breadcrumbs = () => {
 
   return (
     crumbs.length > 0 && (
-      <nav className='flex' aria-label='Breadcrumb'>
+      <nav className='breadcrumbsContainer flex py-3' aria-label='Breadcrumb'>
         <ol className='inline-flex items-center space-x-1 md:space-x-3'>
           <li className='inline-flex items-center'>
             <a
@@ -42,7 +43,7 @@ const Breadcrumbs = () => {
           {crumbs.map((crumb, index) => {
             if (crumbs.length - 1 !== index) {
               return (
-                <li>
+                <li key={index}>
                   <div className='flex items-center'>
                     <svg
                       className='w-3 h-3 text-gray-400 mx-1'
@@ -70,7 +71,7 @@ const Breadcrumbs = () => {
               )
             } else {
               return (
-                <li aria-current='page'>
+                <li aria-current='page' key={index}>
                   <div className='flex items-center'>
                     <svg
                       className='w-3 h-3 text-gray-400 mx-1'

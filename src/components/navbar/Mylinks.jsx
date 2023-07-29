@@ -1,45 +1,44 @@
 export const links = [
   {
-    name: "MASA SANDALYE TAKIM",
+    name: 'MASA SANDALYE TAKIM',
+    link: 'category/masa_sandalye_takim',
     submenu: true,
     sublinks: [
       {
-        // Head: "Topwear",
         sublink: [
-          { name: "AHŞAP AYAKLI TAKIMLAR", link: "/ahsapayaklitakimlar" },
-          { name: "METAL AYAKLI TAKIMLAR", link: "/metalayaklitakimlar" },
-          {
-            name: "YUVARLAK / KARE MASA TAKIMLARI",
-            link: "/yuvarlakkaremasatakimlar",
-          },
+          { name: 'AHŞAP AYAKLI TAKIMLAR', link: '/ahsap' },
+          { name: 'METAL AYAKLI TAKIMLAR', link: '/metal' },
+          { name: 'YUVARLAK / KARE MASA TAKIMLARI', link: '/yuvarlak' },
         ],
       },
     ],
   },
   {
-    name: "MASALAR",
+    name: 'MASALAR',
+    link: 'category/masalar',
     submenu: true,
     sublinks: [
       {
         // Head: "Topwear",
         sublink: [
-          { name: "MDF MASALAR", link: "/" },
-          { name: "SUNTALAM MASALAR", link: "/" },
-          { name: "KARE / YUVARLAK MASALAR", link: "/" },
+          { name: 'MDF MASALAR', link: '/' },
+          { name: 'SUNTALAM MASALAR', link: '/' },
+          { name: 'KARE / YUVARLAK MASALAR', link: '/' },
         ],
       },
     ],
   },
   {
-    name: "SANDALYELER",
+    name: 'SANDALYELER',
+    link: 'category/sandalyeler',
     submenu: true,
     sublinks: [
       {
         // Head: "Topwear",
         sublink: [
-          { name: "AHŞAP AYAKLI SANDALYELER", link: "/" },
-          { name: "METAL AYAKLI SANDALYELER", link: "/" },
-          { name: "BAR SANDALYELERİ", link: "/" },
+          { name: 'AHŞAP AYAKLI SANDALYELER', link: '/' },
+          { name: 'METAL AYAKLI SANDALYELER', link: '/' },
+          { name: 'BAR SANDALYELERİ', link: '/' },
         ],
       },
     ],
