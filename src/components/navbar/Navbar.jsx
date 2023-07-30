@@ -9,14 +9,14 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white ">
-      <div className="flex items-center font-medium justify-around ">
+    <nav className="bg-white h-[120px] flex items-center font-medium justify-around">
+      
         <div className=" p-8 z-50 md:w-auto w-full flex justify-between">
           <div className=''>
             <img
             src="./assets/NadideLogo.png"
             alt="logo"
-            className=" cursor-pointer h-[80px] "
+            className=" cursor-pointer h-[50px] "
           />
           </div>
           
@@ -44,7 +44,7 @@ const Navbar = () => {
             <Button />
           </div>
         </ul>
-      </div>
+      
     </nav>
   );
 };
