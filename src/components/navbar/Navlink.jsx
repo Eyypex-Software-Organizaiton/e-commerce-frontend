@@ -10,8 +10,9 @@ const Navlink = () => {
   return (
     <>
       {links.map((item) => (
-        <div>
-          <div className=" px-3 text-left md:cursor-pointer group hover:bg-gray-500 hover:text-white py-4 transition-all">
+        <div className=" px-3 text-left md:cursor-pointer group hover:bg-gray-500 hover:text-white py-6 transition-all">
+          
+         
             <h1
               className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
               onClick={() => {
@@ -37,11 +38,11 @@ const Navlink = () => {
                   <div className="py-[13px] ">
                     <div className="w-4 h-4 left-3 hidden absolute mt-2 bg-white rotate-45 "></div>
                   </div>
-                  <div className="bg-white p-5">
+                  <div className="bg-white p-4 mt-[14px]">
                     {item.sublinks.map((mysublinks) => [
                       <div>
                         {mysublinks.sublink.map((slink) => (
-                          <li className="text-sm text-gray-600 my-2">
+                          <li className="text-sm text-gray-600  my-4 ">
                             <Link to={slink.link} className="hover:text-black">
                               {slink.name}
                             </Link>
@@ -53,7 +54,7 @@ const Navlink = () => {
                 </div>
               </div>
             )}
-          </div>
+          
 
           <div className={`${heading === item.name ? "md:hidden" : "hidden"}`}>
             {item.sublinks.map((slink) => (
