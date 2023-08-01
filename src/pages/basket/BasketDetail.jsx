@@ -5,7 +5,7 @@ import BasketSummary from "./BasketSummary";
 import { images } from "../../data/data";
 import BasketSummaryFixed from "./BasketSummaryFixed";
 import DeleteBasketModal from "./DeleteBasketModal";
-import MyProfile from "../myprofile/MyProfile";
+import MainProfile from "../../components/myProfile/MainProfile";
 
 const BasketDetail = () => {
   const [basketData, setBasketData] = useState(images);
@@ -51,9 +51,7 @@ const BasketDetail = () => {
 
   return (
     <div className="flex flex-col sm:container mx-auto my-6 ">
-      {/* <>
-        <MyProfile />
-      </> */}
+      <MainProfile />
       <p className="pl-2 mb-4">SEPET DETAYI</p>
       <div className="xs:basis-0 lg:hidden">
         <BasketSummaryFixed basketData={basketData} />
