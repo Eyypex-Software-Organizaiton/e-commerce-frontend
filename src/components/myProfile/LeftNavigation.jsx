@@ -6,7 +6,10 @@ const LeftNavigation = ({ activeTab, handleTabClick }) => {
     <>
       <div className="buton w-5/6 mx-auto justify-center my-6 basis-1/4">
         {/* Dashboard */}
-        <div className="bg-gray-200 font-bold rounded-md mt-5 flex justify-start pl-4  hover:bg-gray-400 duration-100 hover:text-white">
+        <div
+          onClick={() => handleTabClick(1)}
+          className="bg-gray-200 font-bold rounded-md mt-5 flex justify-start pl-4  hover:bg-gray-400 duration-100 hover:text-white cursor-pointer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -22,41 +25,35 @@ const LeftNavigation = ({ activeTab, handleTabClick }) => {
             />
           </svg>
 
-          <button
-            onClick={() => handleTabClick(1)}
-            className="m-2 mx-1 text-center"
-          >
-            Müşteri Bilgisi
-          </button>
+          <button className="m-2 mx-1 text-center">Müşteri Bilgisi</button>
         </div>
         {/* My Profile */}
-        <div className="bg-gray-200 font-bold rounded-md mt-2 flex justify-start pl-4 hover:bg-gray-400 duration-100 hover:text-white">
+        <div
+          onClick={() => handleTabClick(2)}
+          className="bg-gray-200 font-bold rounded-md mt-2 flex justify-start pl-4 hover:bg-gray-400 duration-100 hover:text-white cursor-pointer"
+        >
           <div className="flex items-center">
             <MdOutlineLocationOn className="w-6 h-6 " />
           </div>
 
-          <button
-            onClick={() => handleTabClick(2)}
-            className="m-2 mx-1 text-center"
-          >
-            Adres
-          </button>
+          <button className="m-2 mx-1 text-center">Adres</button>
         </div>
         {/* Messages */}
-        <div className="bg-gray-200 font-bold rounded-md mt-2 flex justify-start pl-4 hover:bg-gray-400 duration-100 hover:text-white">
+        <div
+          onClick={() => handleTabClick(3)}
+          className="bg-gray-200 font-bold rounded-md mt-2 flex justify-start pl-4 hover:bg-gray-400 duration-100 hover:text-white cursor-pointer"
+        >
           <div className="flex items-center">
             <AiOutlineInbox className="w-6 h-6 " />
           </div>
 
-          <button
-            onClick={() => handleTabClick(3)}
-            className="m-2 mx-1 text-center"
-          >
-            Siparişler
-          </button>
+          <button className="m-2 mx-1 text-center">Siparişler</button>
         </div>
         {/* Change Password */}
-        <div className="bg-gray-200 font-bold rounded-md mt-2 flex justify-start pl-4 hover:bg-gray-400 duration-100 hover:text-white">
+        <div
+          onClick={() => handleTabClick(4)}
+          className="bg-gray-200 font-bold rounded-md mt-2 flex justify-start pl-4 hover:bg-gray-400 duration-100 hover:text-white cursor-pointer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -72,12 +69,7 @@ const LeftNavigation = ({ activeTab, handleTabClick }) => {
             />
           </svg>
 
-          <button
-            onClick={() => handleTabClick(4)}
-            className="m-2 mx-1 text-center"
-          >
-            Şifre Değiştir
-          </button>
+          <button className="m-2 mx-1 text-center">Şifre Değiştir</button>
         </div>
       </div>
     </>
