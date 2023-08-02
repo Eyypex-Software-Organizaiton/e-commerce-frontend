@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navlink from "./Navlink";
 import Button from "./Button";
 
-import { links } from "./Mylinks";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className=''>
             <img
             src="./assets/NadideLogo.png"
-            alt="logo"
+            alt="/home"
             className=" cursor-pointer h-[50px] "
           />
           </div>
@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
 
         <ul className="md:flex hidden uppercase items-center gap-2 text-[12px] font-serif  text-slate-700 font-semibold md:bg-top z-50 ">
-          <Navlink />
+          <Navlink  />
         </ul>
         <div className=" justify-between">
           <Button />
