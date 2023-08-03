@@ -38,7 +38,7 @@ const ChangePassword = () => {
             id=""
           />
         </div>
-        <div className="bg-[#2C67B3] hover:bg-[#98c2f9] text-center font-bold text-white py-2 rounded-lg cursor-pointer">
+        <div className="bg-[#2C67B3] hover:bg-[#98c2f9] text-center font-bold text-white py-2 rounded-lg cursor-pointer max-w-[200px] mx-auto">
           <button>ŞİFRE DEĞİŞTİR</button>
         </div>
       </div>
