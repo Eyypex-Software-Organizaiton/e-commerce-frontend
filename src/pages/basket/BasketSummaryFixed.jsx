@@ -90,7 +90,7 @@ const BasketSummaryFixed = ({ basketData }) => {
       </div>
 
       <div className="w-[50%] bg-white">
-        <button className="bg-[#2C67B3] w-full rounded-full  py-2 font-semibold  text-white cursor-pointer ">
+        <button className="bg-[#114B96] hover:bg-[#2C67B3] w-full rounded-full  py-2 font-semibold  text-white cursor-pointer ">
           ALIŞVERİŞİ TAMAMLA
         </button>
       </div>

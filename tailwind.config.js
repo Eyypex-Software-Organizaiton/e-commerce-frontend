@@ -22,7 +22,7 @@ module.exports = {
       },
     },
     screens: {
-      xs: "0px",
+      // xs: "0px",
       // => @media (min-width: 0) { ... }
       sm: "576px",
       // => @media (min-width: 576px) { ... }
