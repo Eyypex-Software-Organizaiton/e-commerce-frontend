@@ -1,3 +1,42 @@
 .price:before {
   content: '₺';
 }
+.productCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productCard:hover .icons {
+  display: flex;
+}
+.productCard > a {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0.5rem;
+  height: calc(100% - 7.25rem);
+  position: relative;
+}
+.card-img {
+  object-fit: contain;
+}
+.gray-container {
+  background-color: #616c70;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 7px;
+  line-height: 30px;
+}
+.discount::before {
+  content: '%';
+}
+.icon-container {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: #616c70;
+  color: white;
+}
+.icon-container:hover {
+  background-color: black;
+}

@@ -7,6 +7,8 @@ const FilterProductCategory = ({
   filterFunction,
   listFunction,
   handleStok,
+  activeIcon,
+  lengthOfData,
 }) => {
   return (
     <div className='justify-between p-3 hidden md:flex'>
@@ -39,24 +41,21 @@ const FilterProductCategory = ({
         </div>
       </div>
       <div className='filterRight flex gap-x-3 justify-center items-center'>
-        <p>buraya ürün sayısı gelecek</p>
+        <p>{lengthOfData} Ürün</p>
         <BsFillGrid3X3GapFill
-          // ref={(el) => (elements.current[0] = el)}
+          color={activeIcon === 3 ? '#616c70' : '#c6c6c6'}
           className='icon icon-active'
-          filter='3'
-          onClick={() => listFunction('3')}
+          onClick={() => listFunction('grid grid-cols-2 md:grid-cols-3', 3)}
         />
         <BsFillGrid3X3GapFill
-          // ref={(el) => (elements.current[1] = el)}
+          color={activeIcon === 4 ? '#616c70' : '#c6c6c6'}
           className='icon'
-          filter='4'
-          onClick={() => listFunction('4')}
+          onClick={() => listFunction('grid grid-cols-2 md:grid-cols-4', 4)}
         />
         <FaThList
-          // ref={(el) => (elements.current[2] = el)}
+          color={activeIcon === 1 ? '#616c70' : '#c6c6c6'}
           className='icon'
-          filter='1'
-          onClick={() => listFunction('1')}
+          onClick={() => listFunction('grid', 1)}
         />
       </div>
     </div>
