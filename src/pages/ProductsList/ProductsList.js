@@ -11,24 +11,19 @@ const ProductsList = () => {
   const { slug } = useParams()
   const [data, setData] = useState([])
   const [initialValue, setInitialValue] = useState(data)
-
+  const [gridClass, setGridClass] = useState('grid grid-cols-2 md:grid-cols-3')
+  const [activeIcon, setActiveIcon] = useState(3)
+  const lengthOfData = data.length
   useEffect(() => {
     setData(productsListData[slug])
     setInitialValue(productsListData[slug])
   }, [slug])
-
-  const listFunction = (e) => {
-    const productList = document.querySelector('.productList')
-    const elements = document.querySelectorAll('.icon')
-
-    elements.forEach((element) => {
-      const filter = element.getAttribute('filter')
-      productList.classList.remove('md:grid-cols-' + filter)
-      element.classList.remove('icon-active')
-      productList.classList.add('md:grid-cols-' + e)
-      e === filter && element.classList.add('icon-active')
-    })
+  // sag üstteki 3lü 4 lü veya tekli listeleme fonksiyonu
+  const listFunction = (x, y) => {
+    setGridClass(x)
+    setActiveIcon(y)
   }
+  // sol üstteki filtreleme fonksiyonu
   const filterFunction = (e) => {
     const val = e.target.value
     val === 'artan' && setData(handleSortByPrice())
@@ -57,8 +52,8 @@ const ProductsList = () => {
   }
   const handleStok = (e) => {
     const filter = e.target.checked
-    const sortedData = data.filter((item) => item.stok)
     if (filter) {
+      const sortedData = data.filter((item) => item.stok)
       setData(sortedData)
     } else {
       setData(initialValue)
@@ -77,8 +72,10 @@ const ProductsList = () => {
           listFunction={listFunction}
           filterFunction={filterFunction}
           handleStok={handleStok}
+          activeIcon={activeIcon}
+          lengthOfData={lengthOfData}
         />
-        <div className='productList grid grid-cols-2 md:grid-cols-3'>
+        <div className={gridClass}>
           {data.map((product, index) => (
             <ProductCard key={index} product={product} />
           ))}
