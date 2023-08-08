@@ -5,8 +5,10 @@ import { GrPinterest } from "react-icons/gr";
 import { AiFillYoutube } from "react-icons/ai";
 import { AiFillApple } from "react-icons/ai";
 import { AiFillAndroid } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="text-center ">
@@ -25,44 +27,34 @@ const Footer = () => {
                 <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase dark:text-white">
                   Kurumsal
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li>
-                    <a href="#" className=" hover:underline">
-                      Hakkımızda
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Bize Ulaşın
-                    </a>
-                  </li>
+                <ul className="flex flex-col text-gray-500 dark:text-gray-400 font-medium">
+                  <Link to="/aboutus" className=" hover:underline">
+                    Hakkımızda
+                  </Link>
+                  <Link to="communication" className="hover:underline">
+                    Bize Ulaşın
+                  </Link>
                 </ul>
               </div>
               <div>
                 <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase dark:text-white">
                   Müşteri Hizmetleri
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="flex flex-col text-gray-500 dark:text-gray-400 font-medium">
                   <li>
                     <a href="#" className="hover:underline">
                       Sıkça Sorulan Sorular
                     </a>
                   </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Mesafeli Satış Sözleşmesi
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Teslimat ve İade Koşulları
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Gizlilik ve Kullanım Koşulları
-                    </a>
-                  </li>
+                  <Link to="/distance" className="hover:underline">
+                    Mesafeli Satış Sözleşmesi
+                  </Link>
+                  <Link to="/delivery" className="hover:underline">
+                    Teslimat ve İade Koşulları
+                  </Link>
+                  <Link to="/privacy" className="hover:underline">
+                    Gizlilik ve Kullanım Koşulları
+                  </Link>
                 </ul>
               </div>
               <div>
@@ -147,8 +139,9 @@ const Footer = () => {
       <div className="flex justify-evenly bg-gray-300 border-gray-600 m-12">
         <p>
           {" "}
-          © 2023 <span className="font-bold cursor-pointer">nadidehome.com</span> - Tüm Hakları
-          Saklıdır.
+          © 2023{" "}
+          <span className="font-bold cursor-pointer">nadidehome.com</span> - Tüm
+          Hakları Saklıdır.
         </p>
       </div>
     </div>
