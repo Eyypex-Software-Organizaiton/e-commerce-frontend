@@ -3,7 +3,7 @@ import { IoMdArrowDropup } from "react-icons/io";
 
 const SepetÖzeti = () => {
   return (
-    <div className="border-2 md:w-[240px] lg:w-[360px] h-[340px] ">
+    <div className="border-2 sm:w-[460px]  md:w-[240px] lg:w-[360px] h-[340px] overflow-hidden ">
       <h2 className="pl-2 pt-2">SEPET ÖZETİ</h2>
       <div className="flex justify-between m-2">
         <div className="flex items-center">

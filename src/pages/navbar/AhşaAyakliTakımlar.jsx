@@ -1,9 +1,9 @@
 import React from 'react'
 
-const MasaSandalyeTakim = () => {
+const AhşaAyakliTakımlar = () => {
   return (
     <div>MasaSandalyeTakim</div>
   )
 }
 
-export default MasaSandalyeTakim
+export default AhşaAyakliTakımlar

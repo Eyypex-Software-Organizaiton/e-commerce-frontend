@@ -8,26 +8,23 @@ import {
   HiUser,
   HiViewBoards,
 } from "react-icons/hi";
-import { Button, Dropdown, Navbar, Sidebar } from "flowbite-react";
+import { Dropdown, Navbar, Sidebar } from "flowbite-react";
 import { useState } from "react";
-// import nadidehome from "./assets/NadideLogo.png";
+
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
 import { SlBasket } from "react-icons/sl";
 
 export default function NavbarWithCTAButton() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Navbar className=" h-18 md:h-20 md:flex justify-between   cursor-pointer ">
+    <Navbar className=" h-18 md:h-20 md:flex justify-between   cursor-pointer  ">
       {/* LOGO */}
 
       <div className="md:w-20  lg:w-40 xl:w-60 ">
         <a href="/">
-
-        <img src="./assets/NadideLogo.png" alt="" width={120} />
+          <img src="./assets/NadideLogo.png" alt="" width={120} />
         </a>
-         
       </div>
       <div className="flex md:order-2 ">
         <Navbar.Toggle />
@@ -46,7 +43,7 @@ export default function NavbarWithCTAButton() {
                   </Sidebar.Item>
                 </Sidebar.Collapse>
                 <Sidebar.Collapse label="MASALAR">
-                  <Sidebar.Item href="#">MDF MASALAR</Sidebar.Item>
+                  <Sidebar.Item href="">MDF MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">SUNATLAM MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">KARE-YUVARLAK MASALAR</Sidebar.Item>
                 </Sidebar.Collapse>
@@ -55,7 +52,7 @@ export default function NavbarWithCTAButton() {
                   <Sidebar.Item href="#">METAL AYAKLI SANDALYELER</Sidebar.Item>
                   <Sidebar.Item href="#">BAR SANDALYELERİ</Sidebar.Item>
                 </Sidebar.Collapse>
-                <Sidebar.Item href="#">
+                <Sidebar.Item href="/bench">
                   <p>BENCH</p>
                 </Sidebar.Item>
                 <Sidebar.Item href="#">
@@ -71,14 +68,10 @@ export default function NavbarWithCTAButton() {
 
         {/* FLEX MENÜ */}
 
-        <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px]  relative box">
+        <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all">
           <Navbar.Link active href="#">
-            <Dropdown
-              inline
-              label="MASA SANDALYE TAKIMI"
-              // onClick={() => open(!setOpen)}
-            >
-              <div className=" h-64 bg-slate-500 absolute top-9   ">
+            <Dropdown inline label="MASA SANDALYE TAKIMI">
+              <div className="h-64 bg-slate-100 absolute top-6 ">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>YUVARLAK/KARE MASA TAKIMLARI</Dropdown.Item>
@@ -86,18 +79,18 @@ export default function NavbarWithCTAButton() {
             </Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link active href="#">
+          <Navbar.Link active href="/masalar">
             <Dropdown inline label="MASALAR">
-              <div className="  h-64 bg-slate-500 absolute top-9  ">
+              <div className="  h-64 bg-slate-100 absolute top-6  ">
                 <Dropdown.Item>MDF MASALAR</Dropdown.Item>
                 <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
                 <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
               </div>
             </Dropdown>
           </Navbar.Link>
-          <Navbar.Link active href="#">
+          <Navbar.Link active href="/sandalyeler">
             <Dropdown inline label="SANDALYLER">
-              <div className=" h-64 bg-slate-500 absolute top-9 ">
+              <div className=" h-64 bg-slate-100 absolute top-6 ">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>BAR SANDALYELERİ</Dropdown.Item>
@@ -105,26 +98,26 @@ export default function NavbarWithCTAButton() {
             </Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link active href="#">
+          <Navbar.Link active href="/bench">
             <Dropdown inline label="BENCH"></Dropdown>
           </Navbar.Link>
-          <Navbar.Link active href="#">
+          <Navbar.Link active href="/metal-oturma-takim">
             <Dropdown inline label="METAL OTURMA GRUPLARI"></Dropdown>
           </Navbar.Link>
-          <Navbar.Link active href="#">
+          <Navbar.Link active href="/tv-ünitesi">
             <Dropdown inline label="TV ÜNİTESİ"></Dropdown>
           </Navbar.Link>
         </div>
       </Navbar.Collapse>
 
       {/* İCONLAR */}
-      <div className="hidden md:flex gap-2 cursor-pointer">
+      <div className="hidden md:flex gap-4 cursor-pointer">
         <a href="/basket">
-
-        <SlBasket />
+          <SlBasket />
         </a>
         <BiUser />
         <AiOutlineUserAdd />
+        <BiSearch />
       </div>
     </Navbar>
   );
