@@ -14,6 +14,7 @@ import { useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 export default function NavbarWithCTAButton() {
   const [open, setOpen] = useState(false);
@@ -24,10 +25,8 @@ export default function NavbarWithCTAButton() {
 
       <div className="md:w-20  lg:w-40 xl:w-60 ">
         <a href="/">
-
-        <img src="./assets/NadideLogo.png" alt="" width={120} />
+          <img src="./assets/NadideLogo.png" alt="" width={120} />
         </a>
-         
       </div>
       <div className="flex md:order-2 ">
         <Navbar.Toggle />
@@ -120,10 +119,11 @@ export default function NavbarWithCTAButton() {
       {/* İCONLAR */}
       <div className="hidden md:flex gap-2 cursor-pointer">
         <a href="/basket">
-
-        <SlBasket />
+          <SlBasket />
         </a>
-        <BiUser />
+        <Link to="/myprofile">
+          <BiUser />
+        </Link>
         <AiOutlineUserAdd />
       </div>
     </Navbar>

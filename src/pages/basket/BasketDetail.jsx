@@ -5,11 +5,6 @@ import BasketSummary from "./BasketSummary";
 import { images } from "../../data/data";
 import BasketSummaryFixed from "./BasketSummaryFixed";
 import DeleteBasketModal from "./DeleteBasketModal";
-import MainProfile from "../../components/myProfile/MainProfile";
-import DeliveryAndReturn from "../conditions/DeliveryAndReturn";
-import DistanceSelling from "../conditions/DistanceSelling";
-import PrivacyAndSecurity from "../conditions/PrivacyAndSecurity";
-import Communication from "../conditions/Communication";
 
 const BasketDetail = () => {
   const [basketData, setBasketData] = useState(images);
@@ -54,59 +49,55 @@ const BasketDetail = () => {
   };
 
   return (
-    <>
-      <Communication />
-    </>
-    // <div className="flex flex-col sm:container mx-auto my-6 ">
-    //   <MainProfile />
-    //   <p className="pl-2 mb-4">SEPET DETAYI</p>
-    //   <div className="xs:basis-0 lg:hidden">
-    //     <BasketSummaryFixed basketData={basketData} />
-    //   </div>
+    <div className="flex flex-col sm:container mx-auto my-6 ">
+      <p className="pl-2 mb-4">SEPET DETAYI</p>
+      <div className="xs:basis-0 lg:hidden">
+        <BasketSummaryFixed basketData={basketData} />
+      </div>
 
-    //   {basketData.length !== 0 ? (
-    //     <div className="flex ">
-    //       <div className="lg:basis-3/4">
-    //         {basketData?.map((element, i) => (
-    //           <>
-    //             {openModal && (
-    //               <DeleteBasketModal
-    //                 openModal={openModal}
-    //                 setOpenModal={setOpenModal}
-    //                 modalDelete={modalDelete}
-    //                 dataItem={dataItem}
-    //                 basketData={basketData}
-    //                 element={element}
-    //               />
-    //             )}
-    //             <BasketDetailInDetail
-    //               element={element}
-    //               dataItem={dataItem}
-    //               key={i}
-    //               basketData={basketData}
-    //               setBasketData={setBasketData}
-    //               handleDelete={handleDelete}
-    //               handleIncrease={handleIncrease}
-    //               handleDecrease={handleDecrease}
-    //               modalDelete={modalDelete}
-    //               setOpenModal={setOpenModal}
-    //             />
-    //           </>
-    //         ))}
-    //       </div>
-    //       <div className="lg:basis-1/4 md:basis-0 xs:hidden lg:block ">
-    //         <BasketSummary basketData={basketData} />
-    //       </div>
-    //     </div>
-    //   ) : (
-    //     <div className="flex flex-col justify-center items-center border-2 mx-auto gap-7 w-[92%] h-56 mt-6">
-    //       <div>
-    //         <PiWarningCircleFill className="w-20 h-20 text-yellow-300" />
-    //       </div>
-    //       <p>Alışveriş sepetinde ürün bulunmamaktadır !</p>
-    //     </div>
-    //   )}
-    // </div>
+      {basketData.length !== 0 ? (
+        <div className="flex ">
+          <div className="lg:basis-3/4">
+            {basketData?.map((element, i) => (
+              <>
+                {openModal && (
+                  <DeleteBasketModal
+                    openModal={openModal}
+                    setOpenModal={setOpenModal}
+                    modalDelete={modalDelete}
+                    dataItem={dataItem}
+                    basketData={basketData}
+                    element={element}
+                  />
+                )}
+                <BasketDetailInDetail
+                  element={element}
+                  dataItem={dataItem}
+                  key={i}
+                  basketData={basketData}
+                  setBasketData={setBasketData}
+                  handleDelete={handleDelete}
+                  handleIncrease={handleIncrease}
+                  handleDecrease={handleDecrease}
+                  modalDelete={modalDelete}
+                  setOpenModal={setOpenModal}
+                />
+              </>
+            ))}
+          </div>
+          <div className="lg:basis-1/4 md:basis-0 hidden lg:block ">
+            <BasketSummary basketData={basketData} />
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col justify-center items-center border-2 mx-auto gap-7 w-[92%] h-56 mt-6">
+          <div>
+            <PiWarningCircleFill className="w-20 h-20 text-yellow-300" />
+          </div>
+          <p>Alışveriş sepetinde ürün bulunmamaktadır !</p>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -24,7 +24,7 @@ const BasketDetailInDetail = ({
         <div className="flex px-4 product xs:h-[150px] md:h-full">
           <div className="mr-4 flex items-center">
             <img
-              className="xs:h-24 xs:w-24 sm:h-28 sm:w-28 md:w-40 md:h-40 xl:w-40 xl:h-40 lg:w-28 lg:h-28  "
+              className="h-16 w-16 sm:h-28 sm:w-28 md:w-40 md:h-40 xl:w-40 xl:h-40 lg:w-28 lg:h-28  "
               src={element.img}
               alt="orderInBasket"
             />
@@ -37,10 +37,10 @@ const BasketDetailInDetail = ({
               ❌
             </div>
             <div className="flex flex-col gap-12 xs:max-w-[90px] sm:max-w-[300px] lg:max-w-none">
-              <p className="xl:text-sm xs:text-xs ">
+              <p className="xl:text-sm text-xs ">
                 Boston Sandalye-Gül Kurusu Babyface Kumaş- Ahşap Siyah İskelet
               </p>
-              <button className="border-2 py-1 px-3 rounded-2xl  max-w-[130px] xs:hidden lg:flex items-center  hover:bg-red-700 hover:text-white">
+              <button className="border-2 py-1 px-3 rounded-2xl  max-w-[130px] hidden lg:flex items-center  hover:bg-red-700 hover:text-white">
                 <div className="mr-1  ">
                   <RiDeleteBin6Line />
                 </div>
@@ -53,7 +53,7 @@ const BasketDetailInDetail = ({
               </button>
             </div>
 
-            <div className="flex">
+            <div className="flex mx-2 min-w-[90px] max-w-[100px]">
               <button
                 onClick={() => handleDecrease(element.id)}
                 className="border-2 p-2"
@@ -77,7 +77,7 @@ const BasketDetailInDetail = ({
                 +
               </button>
             </div>
-            <div className="text-right xl:text-sm lg:text-xs xs:text-xs">
+            <div className="text-right xl:text-sm lg:text-xs text-xs my-6">
               <div className="flex flex-col">
                 <div>
                   <span className="line-through">{totalPrice}</span>
