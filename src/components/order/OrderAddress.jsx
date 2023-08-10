@@ -1,6 +1,7 @@
 import React from "react";
 
-const Adress = () => {
+const OrderAddress = ({handleTabClick}) => {
+
   return (
     <div className=" border-4 w-[285px] sm:w-[460px] cursor-pointer overflow-auto md:w-[680px]  lg:w-[1000px] h-[550px] sm:overflow-hidden ">
       {/* -----------0----- */}
@@ -186,6 +187,7 @@ const Adress = () => {
         <button
           type="button"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm w-24 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 m-2"
+          onClick={()=> handleTabClick(2)}
         >
           KAYDET
         </button>
@@ -194,4 +196,4 @@ const Adress = () => {
   );
 };
 
-export default Adress;
+export default OrderAddress;

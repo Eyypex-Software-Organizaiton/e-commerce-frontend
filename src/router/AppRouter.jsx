@@ -36,7 +36,7 @@ const AppRouter = () => {
         <Route path="/metal-oturma-takim" element={<MetalOturmaTakim />} />
         <Route path="/tv-unitesi" element={<TvÜnitesi />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

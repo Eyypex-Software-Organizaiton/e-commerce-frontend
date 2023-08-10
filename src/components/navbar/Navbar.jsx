@@ -17,8 +17,9 @@ import { BiSearch } from "react-icons/bi";
 import { SlBasket } from "react-icons/sl";
 
 export default function NavbarWithCTAButton() {
+  
   return (
-    <Navbar className=" h-18 md:h-20 md:flex justify-between   cursor-pointer  ">
+    <Navbar className=" h-18 md:h-20 md:flex justify-between">
       {/* LOGO */}
 
       <div className="md:w-20  lg:w-40 xl:w-60 ">
@@ -32,15 +33,17 @@ export default function NavbarWithCTAButton() {
       <Navbar.Collapse className="">
         {/* HAMBURGER MENÜ */}
         <div className="md:hidden">
-          <Sidebar aria-label="Default sidebar example">
+          <Sidebar aria-label="">
             <Sidebar.Items>
               <Sidebar.ItemGroup>
                 <Sidebar.Collapse label="MASA SANDALYE TAKIM">
-                  <Sidebar.Item href="#">AHŞAP AYAKLI TAKIMLAR</Sidebar.Item>
-                  <Sidebar.Item href="#">METAL AYAKLI TAKIMLAR</Sidebar.Item>
-                  <Sidebar.Item href="#">
-                    YUVARLAK KARE MASA TAKIMLARI
-                  </Sidebar.Item>
+                  <div className="">
+                    <Sidebar.Item href="#">AHŞAP AYAKLI TAKIMLAR</Sidebar.Item>
+                    <Sidebar.Item href="#">METAL AYAKLI TAKIMLAR</Sidebar.Item>
+                    <Sidebar.Item href="#">
+                      YUVARLAK KARE MASA TAKIMLARI
+                    </Sidebar.Item>
+                  </div>
                 </Sidebar.Collapse>
                 <Sidebar.Collapse label="MASALAR">
                   <Sidebar.Item href="">MDF MASALAR</Sidebar.Item>
@@ -68,10 +71,10 @@ export default function NavbarWithCTAButton() {
 
         {/* FLEX MENÜ */}
 
-        <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all">
-          <Navbar.Link active href="#">
+        <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all ">
+          <Navbar.Link active href="#" className="">
             <Dropdown inline label="MASA SANDALYE TAKIMI">
-              <div className="h-64 bg-slate-100 absolute top-6 ">
+              <div className="h-64 bg-slate-100 absolute top-[22px] ">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>YUVARLAK/KARE MASA TAKIMLARI</Dropdown.Item>
@@ -81,7 +84,7 @@ export default function NavbarWithCTAButton() {
 
           <Navbar.Link active href="/masalar">
             <Dropdown inline label="MASALAR">
-              <div className="  h-64 bg-slate-100 absolute top-6  ">
+              <div className="  h-64 bg-slate-100 absolute top-[22px] ">
                 <Dropdown.Item>MDF MASALAR</Dropdown.Item>
                 <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
                 <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
@@ -90,7 +93,7 @@ export default function NavbarWithCTAButton() {
           </Navbar.Link>
           <Navbar.Link active href="/sandalyeler">
             <Dropdown inline label="SANDALYLER">
-              <div className=" h-64 bg-slate-100 absolute top-6 ">
+              <div className=" h-64 bg-slate-100 absolute top-[22px]">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>BAR SANDALYELERİ</Dropdown.Item>
@@ -111,13 +114,13 @@ export default function NavbarWithCTAButton() {
       </Navbar.Collapse>
 
       {/* İCONLAR */}
-      <div className="hidden md:flex gap-4 cursor-pointer">
+      <div className="hidden md:flex gap-5  text-xl">
         <a href="/basket">
-          <SlBasket />
+          <SlBasket className="cursor-pointer" />
         </a>
-        <BiUser />
-        <AiOutlineUserAdd />
-        <BiSearch />
+        <BiUser className="cursor-pointer" />
+        <AiOutlineUserAdd className="cursor-pointer" />
+        <BiSearch className="cursor-pointer" />
       </div>
     </Navbar>
   );

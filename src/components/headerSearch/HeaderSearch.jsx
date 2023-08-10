@@ -15,14 +15,14 @@ const HeaderSearch = () => {
             type="email"
             id="email"
             className="w-full h-14 px-4 text-gray-900 text-sm rounded-2xl border-2 border-green-dark focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter your E-mail"
+            placeholder="E-mail giriniz.."
             required=""
           />
           <button
             type="button"
             className="block mt-2 mx-auto bg-green-dark text-white font-bold focus:ring-4 focus:ring-blue-300 rounded-lg text-sm h-10 w-24"
           >
-            Subscribe
+            Abone Ol
           </button>
         </div>
       </form>
