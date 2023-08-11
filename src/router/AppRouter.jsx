@@ -5,6 +5,7 @@ import Footer from "../components/footer/Footer";
 import Home from "../pages/home/Home";
 import ProductsDetails from "../pages/ProductsDetails/ProductsDetails";
 import ProductsList from "../pages/ProductsList/ProductsList";
+import PageNotFound from "../pages/404/PageNotFound";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import BasketDetail from "../pages/basket/BasketDetail";
 import AhşaAyakliTakımlar from "../pages/navbar/AhşaAyakliTakımlar";
@@ -22,10 +23,36 @@ const AppRouter = () => {
       <Breadcrumbs />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/category/:slug" element={<ProductsList />} />
-        <Route path="/:slug" element={<ProductsDetails />} />
-        <Route path="/basket" element={<BasketDetail />} />
-        <Route path="/order" element={<Order />} />
+        {/* <Route path="/kategori" element={<ProductsList />} /> */}
+        <Route path="/kategori/:slug" element={<ProductsList />} />
+        <Route path="/urun/:slug/" element={<ProductsDetails />} />
+
+        <Route path="/sepet" element={<BasketDetail />} />
+        <Route path="/siparis" element={<Order />} />
+        {/* <Route path="/profil" element={<Order />} />
+        <Route path="/uye-ol" element={<Order />} />
+        <Route path="/uye-girisi" element={<Order />} /> */}
+        {/* 
+        <Route path="/hakkimizda" element={<AboutUs />} />
+        <Route path="/iletisim" element={<Communication />} />
+        <Route
+          path="/teslimat-ve-iade-kosullari"
+          element={<DeliveryAndReturn />}
+        />
+        <Route
+          path="/mesafeli-satis-sozlesmesi"
+          element={<DistanceSelling />}
+        />
+        <Route
+          path="/gizlilik-ve-kullanim-kosullari"
+          element={<PrivacyAndSecurity />}
+        />
+        <Route
+          path="/gizlilik-ve-kullanim-kosullari"
+          element={<PrivacyAndSecurity />}
+        /> */}
+        <Route path="*" element={<PageNotFound />} />
+
         <Route
           path="/masa-sandalye-takimlari"
           element={<AhşaAyakliTakımlar />}
