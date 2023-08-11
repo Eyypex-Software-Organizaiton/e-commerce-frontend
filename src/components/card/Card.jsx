@@ -15,18 +15,18 @@ const Card = () => {
                 className="rounded-md w-full h-auto"
               />
             </div>
-            <div className="absolute flex flex-col ">
+            <div className="absolute flex flex-col mx-4  ">
               
-                 <h2 className="text-white ">{item.name}</h2>
-              <p className="">{item.text}</p>
-              <button className="bg-white">{item.button}</button>
+                 <h2 className="text-white font-semibold uppercase">{item.name}</h2>
+              <p className="text-gray-700 text-white">{item.text}</p>
+              <button className="bg-white h-10 w-18 hover:shadow-indigo-700/100 hover:scale-105 transition-transform hover:text-blue-300 duration-500 rounded-md  ">{item.button}</button>
               
              
             </div>
           </div>
         ))}
       </div>
-
+ 
       <div className="relative grid gap-4 m-4 md:grid-cols-2">
         {test.map((data, index) => (
           <div key={index} className="relative flex flex-col justify-center">
@@ -37,10 +37,10 @@ const Card = () => {
                 className="rounded-md w-full h-auto"
               />
             </div>
-            <div className="absolute flex flex-col">
-              <h2>{data.name1}</h2>
-              <p className="">{data.text1}</p>
-              <button className="bg-white">{data.button1}</button>
+            <div className="absolute flex flex-col mx-4 ">
+              <h2 className="text-white font-semibold uppercase">{data.name1}</h2>
+              <p className="text-gray-700 text-white">{data.text1}</p>
+              <button className="bg-white h-10 w-18 hover:shadow-indigo-400/100 hover:scale-105 transition-transform hover:text-blue-300 duration-500 rounded-md">{data.button1}</button>
             </div>
           </div>
         ))}
