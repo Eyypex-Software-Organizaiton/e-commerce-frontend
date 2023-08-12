@@ -11,22 +11,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.box path{
+.box path {
   display: none;
-  
-  }
-  .box element.style{
+}
+.box element.style {
   display: none;
-  }
-  
-  div[data-testid="flowbite-dropdown"] {
-      min-width: 0 !important;
-      border:none !important;
-      
-    }
-  
-    #flowbite-dropdown {
-      min-width: 0 !important;
-      position: absolute !important;
-    }
-    
+}
+
+div[data-testid="flowbite-dropdown"] {
+  min-width: 0 !important;
+  border: none !important;
+}
+
+#flowbite-dropdown {
+  min-width: 0 !important;
+  position: absolute !important;
+}
+
+.flex.items-stretch.transition-all.duration-200.rounded-md.text-sm.px-4.py-2 {
+  width: 300px;
+}
+
+.ml-2.h-4.w-4 {
+  margin-top: 20px;
+}
