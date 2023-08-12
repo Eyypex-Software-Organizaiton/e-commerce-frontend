@@ -1,6 +1,6 @@
 import React from "react";
 
-const TeslimatBilgi = () => {
+const TeslimatBilgi = ({handleTabClick}) => {
   return (
     <div className="border-2 w-[1000px] m-8">
       <div className="flex-row m-2">
@@ -32,7 +32,15 @@ const TeslimatBilgi = () => {
       <div className="flex items-center m-2">
       <input checked id="checkbox-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" ></input>
         <p>Fatura bilgilerim teslimat bilgilerim ile aynı olsun</p>
+
       </div>
+      <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 whitespace-nowrap focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm w-36 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 m-2"
+          onClick={() => handleTabClick(3)}
+        >
+          Ödeme İşlemleri
+        </button>
     </div>
   );
 };

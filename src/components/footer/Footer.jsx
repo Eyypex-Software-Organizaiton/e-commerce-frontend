@@ -14,8 +14,7 @@ const Footer = () => {
       <div className="text-center ">
         <h1 className="font-bold text-lg">BİZDEN HABERLER</h1>
         <p className="text-sm text-gray-500">
-          Bültnimize Üye Olun ! Tüm İndirim ve Fırsatlardan İlk Sizin Haberiniz
-          Olsun
+        Güncel Kampanyalardan ve İndirimlerden Haberdar Olmak İçin Bültenimize Ücretsiz Abone Olun!
         </p>
       </div>
 

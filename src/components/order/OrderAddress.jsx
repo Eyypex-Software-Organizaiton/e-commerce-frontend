@@ -1,8 +1,9 @@
 import React from "react";
 
-const Adress = () => {
+const OrderAddress = ({handleTabClick}) => {
+
   return (
-    <div className=" border-4 w-[600px] md:w-[800px]   lg:w-[1000px] h-[550px] overflow-hidden ">
+    <div className=" border-4 w-[285px] sm:w-[460px] cursor-pointer overflow-auto md:w-[680px]  lg:w-[1000px] h-[550px] sm:overflow-hidden ">
       {/* -----------0----- */}
       <div className="m-4 ">
         <h2 className="py-1">YENİ ADRESS EKLE</h2>
@@ -10,13 +11,13 @@ const Adress = () => {
         <p className="py-1">Örnek : Ev ya da iş</p>
       </div>
       {/* ------1-------- */}
-      <div className="flex justify-around ">
+      <div className="flex-row text-center   md:flex justify-between ">
         <div className=" p-2 ">
           <input
             type="text"
             id="default-input"
             placeholder="*Ad"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-[420px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[320px]  lg:w-[460px]  p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
         <div className=" p-2">
@@ -24,12 +25,12 @@ const Adress = () => {
             type="text"
             id="default-input"
             placeholder="*Soyad"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  w-[420px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px] md:w-[320px]  lg:w-[460px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
           />
         </div>
       </div>
       {/* ---------2---------- */}
-      <div className="flex justify-between ">
+      <div className="flex-row text-center overflow-auto md:flex justify-between ">
         <div className="p-2">
           <label
             htmlFor="countries"
@@ -39,7 +40,7 @@ const Adress = () => {
           </label>
           <select
             id="countries"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[210px] lg:w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option selected="">Choose a country</option>
             <option value="US">United States</option>
@@ -57,7 +58,7 @@ const Adress = () => {
           </label>
           <select
             id="countries"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[210px] lg:w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option selected="">Choose a country</option>
             <option value="US">United States</option>
@@ -75,7 +76,7 @@ const Adress = () => {
           </label>
           <select
             id="countries"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[210px] lg:w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option selected="">Choose a country</option>
             <option value="US">United States</option>
@@ -87,13 +88,13 @@ const Adress = () => {
       </div>
       {/* ---------3----------- */}
 
-      <div className="flex justify-between">
+      <div className="flex-row text-center md:flex justify-between">
         <div className="p-3">
           <input
             type="text"
             id="default-input"
             placeholder="*Ad"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500  w-[240px] sm:w-[410px]  md:w-[210px] lg:w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
         <div className="p-3">
@@ -101,7 +102,7 @@ const Adress = () => {
             type="text"
             id="default-input"
             placeholder="*Soyad"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[210px] lg:w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
           />
         </div>
         <div className="p-3">
@@ -109,7 +110,7 @@ const Adress = () => {
             type="text"
             id="default-input"
             placeholder="*Soyad"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500  w-[240px] sm:w-[410px]  md:w-[210px] lg:w-[280px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
           />
         </div>
       </div>
@@ -119,8 +120,8 @@ const Adress = () => {
         <div className="pl-3">
           <h2>FATURA TİPİ</h2>
         </div>
-        <div className="flex items-center ml-44">
-          <div className="flex items-center mb-4 pr-24">
+        <div className="flex items-center md:ml-44 sm:ml-24  ml-4">
+          <div className="flex items-center mb-2 md:mb-4 pr-6">
             <input
               id="default-radio-1"
               type="radio"
@@ -135,7 +136,7 @@ const Adress = () => {
               Default radio
             </label>
           </div>
-          <div className="flex items-center mb-4">
+          <div className="flex items-center mb-2 md:mb-4">
             <input
               defaultChecked=""
               id="default-radio-2"
@@ -154,22 +155,22 @@ const Adress = () => {
         </div>
       </div>
       {/* ---------5--------- */}
-      <div>
-        <div className="m-2">
+      <div className="">
+        <div className="m-2 flex-row text-center md:flex justify-between">
           <input
             type="text"
             id="default-input"
             placeholder="*Ad"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-full p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
-        <div className="flex justify-around">
+        <div className="flex-row text-center md:flex justify-between">
           <div className="p-4">
             <input
               type="text"
               id="default-input"
               placeholder="*Ad"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-[420px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[320px]  lg:w-[460px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
           <div className="p-4">
@@ -177,16 +178,22 @@ const Adress = () => {
               type="text"
               id="default-input"
               placeholder="*Ad"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-[420px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 w-[240px] sm:w-[410px]  md:w-[320px]  lg:w-[460px] p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
         </div>
       </div>
       <div className="flex items-center justify-center">
-      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm w-24 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 m-2">KAYDET</button>
+        <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm w-24 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 m-2"
+          onClick={()=> handleTabClick(2)}
+        >
+          KAYDET
+        </button>
       </div>
     </div>
   );
 };
 
-export default Adress;
+export default OrderAddress;
