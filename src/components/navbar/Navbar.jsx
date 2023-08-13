@@ -15,9 +15,9 @@ import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { SlBasket } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 export default function NavbarWithCTAButton() {
-  
   return (
     <Navbar className=" h-18 md:h-20 md:flex justify-between">
       {/* LOGO */}
@@ -118,7 +118,9 @@ export default function NavbarWithCTAButton() {
         <a href="/basket">
           <SlBasket className="cursor-pointer" />
         </a>
-        <BiUser className="cursor-pointer" />
+        <Link to="/myprofile">
+          <BiUser className="cursor-pointer" />
+        </Link>
         <AiOutlineUserAdd className="cursor-pointer" />
         <BiSearch className="cursor-pointer" />
       </div>

@@ -5,6 +5,12 @@ import Footer from "../components/footer/Footer";
 import Home from "../pages/home/Home";
 import ProductsDetails from "../pages/ProductsDetails/ProductsDetails";
 import ProductsList from "../pages/ProductsList/ProductsList";
+import AboutUs from "../pages/conditions/AboutUs";
+import Communication from "../pages/conditions/Communication";
+import DeliveryAndReturn from "../pages/conditions/DeliveryAndReturn";
+import DistanceSelling from "../pages/conditions/DistanceSelling";
+import PrivacyAndSecurity from "../pages/conditions/PrivacyAndSecurity";
+import MainProfile from "../components/myProfile/MainProfile";
 import PageNotFound from "../pages/404/PageNotFound";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import BasketDetail from "../pages/basket/BasketDetail";
@@ -23,6 +29,12 @@ const AppRouter = () => {
       <Breadcrumbs />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/communication" element={<Communication />} />
+        <Route path="/delivery" element={<DeliveryAndReturn />} />
+        <Route path="/distance" element={<DistanceSelling />} />
+        <Route path="/privacy" element={<PrivacyAndSecurity />} />
+        <Route path="/myprofile" element={<MainProfile />} />
         {/* <Route path="/kategori" element={<ProductsList />} /> */}
         <Route path="/kategori/:slug" element={<ProductsList />} />
         <Route path="/urun/:slug/" element={<ProductsDetails />} />

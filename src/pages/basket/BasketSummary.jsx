@@ -2,16 +2,11 @@ import React from "react";
 import { AiOutlineSmallDash, AiOutlineUserAdd } from "react-icons/ai";
 
 const BasketSummary = ({ basketData }) => {
-  // const totalPrice = basketData
-  //   .reduce((accumulator, item) => {
-  //     return accumulator + item.price * item.amount;
-  //   }, 0)
-  //   .toFixed(2)
-  //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  //   .replace(".", ".");
-  const totalPrice = basketData.reduce((accumulator, item) => {
-    return accumulator + item.price * item.amount;
-  }, 0);
+  const totalPrice = basketData
+    .reduce((accumulator, item) => {
+      return accumulator + item.price * item.amount;
+    }, 0)
+    .toFixed(2);
 
   const formattedPriceString = totalPrice.toLocaleString(undefined, {
     minimumFractionDigits: 2,
@@ -22,7 +17,7 @@ const BasketSummary = ({ basketData }) => {
     formattedPriceString.replace(",", ".")
   );
 
-  console.log(formattedPriceNumber); // Örnek olarak, ekrana 1234.56 şeklinde bir çıktı alırız.
+  console.log(formattedPriceNumber);
 
   const taxRatePrice = Number(
     basketData
@@ -32,14 +27,11 @@ const BasketSummary = ({ basketData }) => {
       .toFixed(2)
       .replace(",", ".")
   );
-  // console.log(formattedPrice);
-  console.log(taxRatePrice);
-  // .toFixed(2)
-  // .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  // .replace(".", ".");
-  // const { amount, price, taxRate } = dataItem;
 
-  // const taxRatePrice = (price * amount * taxRate) / 100;
+  console.log(taxRatePrice);
+  const total = totalPrice - taxRatePrice;
+  console.log(total);
+
   return (
     <div className="max-w-[300px] ml-2 border-2">
       <div className="px-2 pt-1">SEPET ÖZETİ</div>
@@ -47,7 +39,7 @@ const BasketSummary = ({ basketData }) => {
         <div className="flex justify-between mb-1 ">
           <span>Ara Toplam</span>{" "}
           <div className="font-bold">
-            {/* <span>{total} </span> */}
+            <span>{total} </span>
             <span>TL</span>
           </div>
         </div>
