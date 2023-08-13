@@ -43,11 +43,16 @@ const BasketSummaryFixed = ({ basketData }) => {
   // const taxRatePrice = (price * amount * taxRate) / 100;
   return (
     <div className=" flex justify-between sm:container w-full fixed bottom-0 bg-white z-20 mx-auto ">
-      <div className="flex items-center w-[50%]  ">
+      <div className="flex items-center w-[50%]   ">
         <Dropdown
-          label="Toplam"
+          label={
+            <span className="w-[150px] text-left text-lg">
+              <span className="text-xs"> Toplam</span> <br />
+              {totalPrice} TL
+            </span>
+          }
           placement="top"
-          className=" w-full mx-auto"
+          className=" w-full mx-auto "
           color="black"
         >
           <Dropdown.Item className="flex justify-center bg-gray-200 w-full mx-auto  ">
@@ -89,7 +94,7 @@ const BasketSummaryFixed = ({ basketData }) => {
         </Dropdown>
       </div>
 
-      <div className="w-[50%] bg-white">
+      <div className="w-[50%] bg-white flex items-center">
         <button className="bg-[#114B96] hover:bg-[#2C67B3] w-full rounded-full  py-2 font-semibold  text-white cursor-pointer ">
           ALIŞVERİŞİ TAMAMLA
         </button>
