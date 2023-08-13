@@ -1,51 +1,129 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Navlink from './Navlink'
-import NavbarIcons from './Button'
+"use client";
+import {
+  HiArrowSmRight,
+  HiChartPie,
+  HiInbox,
+  HiShoppingBag,
+  HiTable,
+  HiUser,
+  HiViewBoards,
+} from "react-icons/hi";
+import { Dropdown, Navbar, Sidebar } from "flowbite-react";
+import { useState } from "react";
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false)
+import { BiUser } from "react-icons/bi";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
+import { SlBasket } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
+export default function NavbarWithCTAButton() {
   return (
-    <nav className="bg-white ">
-      <div className="flex items-center font-medium justify-around ">
-        <img
-          src="./assets/ecommercee.png"
-          className="md:cursor-pointer h-[90px] "
-        />
-        <div
-          className=" absolute top-0 left-0 text-3xl cursor-pointer "
-          onClick={() => setOpen(!open)}
-        >
-          {/* <GiHamburgerMenu /> */}
-        </div>
+    <Navbar className=" h-18 md:h-20 md:flex justify-between">
+      {/* LOGO */}
 
-        <ul className="md:flex  uppercase items-center gap-2 text-[12px] font-serif  text-slate-700 font-semibold md:bg-top z-50 ">
-          <Navlink />
-        </ul>
-        <div className="md:block hidden justify-between">
-          <NavbarIcons />
-        </div>
-        {/* Mobile App */}
-        <ul
-          className={`
-        md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4
-        duration-500 ${open ? 'left-0' : ' left-[-100%]'}
-            `}
-        >
-          <li>
-            <Link href="http://" className="py-7 px-3 inline-block">
-              MASA SANDALYE TAKIM
-            </Link>
-          </li>
-          <Navlink />
-          <div className="py-5">
-            <NavbarIcons />
-          </div>
-        </ul>
+      <div className="md:w-20  lg:w-40 xl:w-60 ">
+        <a href="/">
+          <img src="./assets/NadideLogo.png" alt="" width={120} />
+        </a>
       </div>
-    </nav>
-  )
-}
+      <div className="flex md:order-2 ">
+        <Navbar.Toggle />
+      </div>
+      <Navbar.Collapse className="">
+        {/* HAMBURGER MENÜ */}
+        <div className="md:hidden">
+          <Sidebar aria-label="">
+            <Sidebar.Items>
+              <Sidebar.ItemGroup>
+                <Sidebar.Collapse label="MASA SANDALYE TAKIM">
+                  <div className="">
+                    <Sidebar.Item href="#">AHŞAP AYAKLI TAKIMLAR</Sidebar.Item>
+                    <Sidebar.Item href="#">METAL AYAKLI TAKIMLAR</Sidebar.Item>
+                    <Sidebar.Item href="#">
+                      YUVARLAK KARE MASA TAKIMLARI
+                    </Sidebar.Item>
+                  </div>
+                </Sidebar.Collapse>
+                <Sidebar.Collapse label="MASALAR">
+                  <Sidebar.Item href="">MDF MASALAR</Sidebar.Item>
+                  <Sidebar.Item href="#">SUNATLAM MASALAR</Sidebar.Item>
+                  <Sidebar.Item href="#">KARE-YUVARLAK MASALAR</Sidebar.Item>
+                </Sidebar.Collapse>
+                <Sidebar.Collapse label="SANDALYELER">
+                  <Sidebar.Item href="#">AHŞAP AYAKLI SANDALYELER</Sidebar.Item>
+                  <Sidebar.Item href="#">METAL AYAKLI SANDALYELER</Sidebar.Item>
+                  <Sidebar.Item href="#">BAR SANDALYELERİ</Sidebar.Item>
+                </Sidebar.Collapse>
+                <Sidebar.Item href="/bench">
+                  <p>BENCH</p>
+                </Sidebar.Item>
+                <Sidebar.Item href="#">
+                  <p>METAL OTURMA TAKIMLARI</p>
+                </Sidebar.Item>
+                <Sidebar.Item href="#">
+                  <p>TV ÜNİTESİ</p>
+                </Sidebar.Item>
+              </Sidebar.ItemGroup>
+            </Sidebar.Items>
+          </Sidebar>
+        </div>
 
-export default Navbar
+        {/* FLEX MENÜ */}
+
+        <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all ">
+          <Navbar.Link active href="#" className="">
+            <Dropdown inline label="MASA SANDALYE TAKIMI">
+              <div className="h-64 bg-slate-100 absolute top-[22px] ">
+                <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
+                <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
+                <Dropdown.Item>YUVARLAK/KARE MASA TAKIMLARI</Dropdown.Item>
+              </div>
+            </Dropdown>
+          </Navbar.Link>
+
+          <Navbar.Link active href="/masalar">
+            <Dropdown inline label="MASALAR">
+              <div className="  h-64 bg-slate-100 absolute top-[22px] ">
+                <Dropdown.Item>MDF MASALAR</Dropdown.Item>
+                <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
+                <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
+              </div>
+            </Dropdown>
+          </Navbar.Link>
+          <Navbar.Link active href="/sandalyeler">
+            <Dropdown inline label="SANDALYLER">
+              <div className=" h-64 bg-slate-100 absolute top-[22px]">
+                <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
+                <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
+                <Dropdown.Item>BAR SANDALYELERİ</Dropdown.Item>
+              </div>
+            </Dropdown>
+          </Navbar.Link>
+
+          <Navbar.Link active href="/bench">
+            <Dropdown inline label="BENCH"></Dropdown>
+          </Navbar.Link>
+          <Navbar.Link active href="/metal-oturma-takim">
+            <Dropdown inline label="METAL OTURMA GRUPLARI"></Dropdown>
+          </Navbar.Link>
+          <Navbar.Link active href="/tv-ünitesi">
+            <Dropdown inline label="TV ÜNİTESİ"></Dropdown>
+          </Navbar.Link>
+        </div>
+      </Navbar.Collapse>
+
+      {/* İCONLAR */}
+      <div className="hidden md:flex gap-5  text-xl">
+        <a href="/basket">
+          <SlBasket className="cursor-pointer" />
+        </a>
+        <Link to="/myprofile">
+          <BiUser className="cursor-pointer" />
+        </Link>
+        <AiOutlineUserAdd className="cursor-pointer" />
+        <BiSearch className="cursor-pointer" />
+      </div>
+    </Navbar>
+  );
+}
