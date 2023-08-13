@@ -7,6 +7,8 @@ import ProductsDetails from '../pages/ProductsDetails/ProductsDetails'
 // import ProductsList from '../pages/ProductsList/ProductsList'
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs'
 import BasketDetail from '../pages/basket/BasketDetail'
+import Register from '../pages/register/Register'
+import Login from '../pages/login/Login'
 
 const AppRouter = () => {
   return (
@@ -19,6 +21,8 @@ const AppRouter = () => {
         {/* <Route path='/category' element={<ProductsList />} /> */}
         <Route path='/:slug' element={<ProductsDetails />} />
         <Route path='/basket' element={<BasketDetail />} />
+        <Route path='/uye-ol' element={<Register/>}/>
+        <Route path='/uye-girisi' element={<Login/>}/>
       </Routes>
       <Footer />
     </>

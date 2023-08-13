@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SlBasket } from "react-icons/sl";
 import { FaTruck } from "react-icons/fa";
+import axios from "axios";
 
 const ProductsCard = () => {
+const getProductInfo=async()=>{
+  try {
+    const URL = `http://127.0.0.1:8000/api/product/id={id}/`;
+    const {data}=await axios(URL)
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+useEffect(() => {
+  
+getProductInfo()
+  
+}, [])
+
+
   return (
     <div className="flex flex-col mx-12 ">
       <h1 className="text-2xl  mb-4 font-semibold">Blanca 6231 2'li Sandalye</h1>

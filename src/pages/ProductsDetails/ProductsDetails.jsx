@@ -7,8 +7,8 @@ const ProductsDetails = () => {
   return (
     <>
   
-    <div className="flex gap-2  w-[100%]">
-      <div className="w-[60%] m-8">
+    <div className="md:flex items-center   gap-2  w-[100%]">
+      <div className="w-[60%] m-8 ">
         <ProductsCarousel />
       </div>
       <div className="w-[40%]">
