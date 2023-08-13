@@ -86,26 +86,7 @@ const RegisterForm = ({
      
           </div>
         </div>
-        <div className="sm:flex justify-between">
-          <legend className="pl-4">Cinsiyet</legend>
-          <div className="flex items-center gap-2">
-            <Radio defaultChecked id="erkek" name="cinsiyet" value="Erkek" />
-            <Label htmlFor="united-state">Erkek</Label>
-          </div>
-          <div className="flex items-center gap-2">
-            <Radio id="kadın" name="cinsiyet" value="kadın" />
-            <Label htmlFor="kadın">Kadın</Label>
-          </div>
-          <div className="flex items-center gap-2">
-            <Radio id="other" name="cinsiyet" value="other" />
-            <Label htmlFor="other">Belirtmek İstemiyorum</Label>
-          </div>
-        </div>
-        <div className="md:flex  block justify-between pr-4 pl-4 items-center  my-2">
-          <Label htmlFor="tel" value="Cep Telefon" />
-
-          <TextInput id="tel" required type="text" className="w-[330px] " />
-        </div>
+        
         <div className="m-4  ">
           <div className="my-4">
             <Checkbox id="remember" />
