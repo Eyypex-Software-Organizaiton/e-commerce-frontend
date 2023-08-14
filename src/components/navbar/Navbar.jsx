@@ -15,24 +15,9 @@ import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { SlBasket } from "react-icons/sl";
-import { useAuth } from "../../context/UserContext";
+import { Link } from "react-router-dom";
 
 export default function NavbarWithCTAButton() {
-  const {login,refresh,register,user} = useAuth()
-
-  const userInfo={
-  "email": "selman3@gmail.com",
-  "password": "selman1234."
-}
- useEffect(() => {
-  // register(userInfo)
-  login(userInfo)
-
-  }, [])
-
-  
-
-console.log(user);
   return (
     <Navbar className=" h-18 md:h-20 md:flex justify-between">
       {/* LOGO */}
@@ -133,7 +118,9 @@ console.log(user);
         <a href="/basket">
           <SlBasket className="cursor-pointer" />
         </a>
-        <BiUser className="cursor-pointer" />
+        <Link to="/myprofile">
+          <BiUser className="cursor-pointer" />
+        </Link>
         <AiOutlineUserAdd className="cursor-pointer" />
         <BiSearch className="cursor-pointer" />
       </div>
