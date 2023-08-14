@@ -54,8 +54,8 @@ const FilterProductCategory = ({
         />
         <FaThList
           color={activeIcon === 1 ? '#616c70' : '#c6c6c6'}
-          className='icon'
-          onClick={() => listFunction('grid', 1)}
+          className='icon '
+          onClick={() => listFunction('grid my-1 mx-auto w-[500px]' , 1)}
         />
       </div>
     </div>

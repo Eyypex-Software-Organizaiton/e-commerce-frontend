@@ -42,6 +42,7 @@ const CardContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+  
 
   const values = { register, getBasket, login, tokenState, setTokenState };
   return <CardContext.Provider value={values}>{children}</CardContext.Provider>;
