@@ -23,7 +23,7 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
   return (
     <>
       <img
-        src="./assets/ecommercee.png"
+        src="./assets/NadideLogo.png"
         className="flex m-auto"
         width={300}
         height={300}
