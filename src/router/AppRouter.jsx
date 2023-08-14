@@ -21,8 +21,8 @@ import Order from "../pages/payment/Order";
 import Bench from "../pages/navbar/Bench";
 import MetalOturmaTakim from "../pages/navbar/MetalOturmaTakim";
 import TvÜnitesi from "../pages/navbar/TvÜnitesi";
-import Register from '../pages/register/Register'
-import Login from '../pages/login/Login'
+import Register from "../pages/register/Register";
+import Login from "../pages/login/Login";
 
 const AppRouter = () => {
   return (
@@ -38,14 +38,14 @@ const AppRouter = () => {
         <Route path="/privacy" element={<PrivacyAndSecurity />} />
         <Route path="/myprofile" element={<MainProfile />} />
         {/* <Route path="/kategori" element={<ProductsList />} /> */}
-        <Route path="/kategori/:slug" element={<ProductsList />} />
-        <Route path="/urun/:slug/" element={<ProductsDetails />} />
+        <Route path="/:slug" element={<ProductsList />} />
+        <Route path="/:slug/:title" element={<ProductsDetails />} />
 
         <Route path="/sepet" element={<BasketDetail />} />
         <Route path="/siparis" element={<Order />} />
         {/* <Route path="/profil" element={<Order />} />*/}
         <Route path="/uye-ol" element={<Register />} />
-        <Route path="/uye-girisi" element={<Login />} /> 
+        <Route path="/uye-girisi" element={<Login />} />
         {/* 
         <Route path="/hakkimizda" element={<AboutUs />} />
         <Route path="/iletisim" element={<Communication />} />
@@ -67,7 +67,7 @@ const AppRouter = () => {
         /> */}
         <Route path="*" element={<PageNotFound />} />
 
-        <Route
+        {/* <Route
           path="/masa-sandalye-takimlari"
           element={<AhşaAyakliTakımlar />}
         />
@@ -75,7 +75,7 @@ const AppRouter = () => {
         <Route path="/masalar" element={<Masalar />} />
         <Route path="/bench" element={<Bench />} />
         <Route path="/metal-oturma-takim" element={<MetalOturmaTakim />} />
-        <Route path="/tv-unitesi" element={<TvÜnitesi />} />
+        <Route path="/tv-unitesi" element={<TvÜnitesi />} /> */}
       </Routes>
       <Footer />
     </>
