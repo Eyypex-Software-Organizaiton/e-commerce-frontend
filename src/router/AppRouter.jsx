@@ -21,6 +21,8 @@ import Order from "../pages/payment/Order";
 import Bench from "../pages/navbar/Bench";
 import MetalOturmaTakim from "../pages/navbar/MetalOturmaTakim";
 import TvÜnitesi from "../pages/navbar/TvÜnitesi";
+import Register from '../pages/register/Register'
+import Login from '../pages/login/Login'
 
 const AppRouter = () => {
   return (
@@ -41,9 +43,9 @@ const AppRouter = () => {
 
         <Route path="/sepet" element={<BasketDetail />} />
         <Route path="/siparis" element={<Order />} />
-        {/* <Route path="/profil" element={<Order />} />
-        <Route path="/uye-ol" element={<Order />} />
-        <Route path="/uye-girisi" element={<Order />} /> */}
+        {/* <Route path="/profil" element={<Order />} />*/}
+        <Route path="/uye-ol" element={<Register />} />
+        <Route path="/uye-girisi" element={<Login />} /> 
         {/* 
         <Route path="/hakkimizda" element={<AboutUs />} />
         <Route path="/iletisim" element={<Communication />} />
