@@ -9,15 +9,30 @@ import {
   HiViewBoards,
 } from "react-icons/hi";
 import { Dropdown, Navbar, Sidebar } from "flowbite-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { SlBasket } from "react-icons/sl";
+import { useAuth } from "../../context/UserContext";
 
 export default function NavbarWithCTAButton() {
+  const {login,refresh,register,user} = useAuth()
+
+  const userInfo={
+  "email": "selman3@gmail.com",
+  "password": "selman1234."
+}
+ useEffect(() => {
+  // register(userInfo)
+  login(userInfo)
+
+  }, [])
+
   
+
+console.log(user);
   return (
     <Navbar className=" h-18 md:h-20 md:flex justify-between">
       {/* LOGO */}
