@@ -88,7 +88,13 @@ const BasketDetail = () => {
 
   return (
     <>
-      <Helmet></Helmet>
+      <Helmet>
+        <title>Sepetim | Güvenli Alışveriş - Nadide Home</title>
+        <meta
+          name="description"
+          content="Seçtiğiniz mobilyaları sepetinize ekleyin ve evinizi Nadide Home ile yeniden şekillendirin."
+        />
+      </Helmet>
 
       <div className="flex flex-col sm:container mx-auto my-6 ">
         <p className="pl-2 mb-4">SEPET DETAYI</p>
