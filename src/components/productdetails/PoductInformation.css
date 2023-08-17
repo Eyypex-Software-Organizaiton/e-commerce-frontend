@@ -1,4 +1,4 @@
 .x {
-    transition: all 0.9s ease-in-out !important;
+  transition: all 0.9s ease-in-out !important;
   transition-duration: 0.9s !important; /* You can change this value to make it slower */
 }

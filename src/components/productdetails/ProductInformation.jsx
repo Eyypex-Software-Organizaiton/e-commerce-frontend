@@ -1,49 +1,47 @@
-import React from 'react'
+import React from "react";
 import { Accordion } from "flowbite-react";
 import { Table } from "flowbite-react";
-import "./PoductInformation.css"
+import "./PoductInformation.css";
 const ProductInformation = () => {
   return (
     <Accordion collapseAll className="w-1/2 ">
       <Accordion.Panel>
-        <Accordion.Title>Ürün Bilgisi</Accordion.Title>
-    
-        <Accordion.Content >
-    
-              <Table striped className="w-96">
-            <Table.Body className="divide-y ">
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  Ürün Cinsi
-                </Table.Cell>
-                <Table.Cell>Standart </Table.Cell>
-                <Table.Cell>
-                  <a href="#">Detay için tıklayınız</a>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  <p>Kurulum Bilgisi</p>
-                </Table.Cell>
-                <Table.Cell>Ücretsiz Kurulum</Table.Cell>
-              </Table.Row>
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  Garanti
-                </Table.Cell>
-                <Table.Cell>2 Years</Table.Cell>
-              </Table.Row>
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  <p>Max Teslimat Süresi</p>
-                </Table.Cell>
-                <Table.Cell>35</Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
-        
-        </Accordion.Content>
-    
+        <div className="!transition  !delay-700  !duration-300  !ease-in-out ">
+          <Accordion.Title>Ürün Bilgisi</Accordion.Title>
+          <Accordion.Content>
+            <Table striped className="w-96">
+              <Table.Body className="divide-y ">
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    Ürün Cinsi
+                  </Table.Cell>
+                  <Table.Cell>Standart </Table.Cell>
+                  <Table.Cell>
+                    <a href="#">Detay için tıklayınız</a>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    <p>Kurulum Bilgisi</p>
+                  </Table.Cell>
+                  <Table.Cell>Ücretsiz Kurulum</Table.Cell>
+                </Table.Row>
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    Garanti
+                  </Table.Cell>
+                  <Table.Cell>2 Years</Table.Cell>
+                </Table.Row>
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    <p>Max Teslimat Süresi</p>
+                  </Table.Cell>
+                  <Table.Cell>35</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </Accordion.Content>
+        </div>
       </Accordion.Panel>
       <Accordion.Panel>
         <Accordion.Title>Teslimat ve Kurulum</Accordion.Title>
@@ -70,6 +68,6 @@ const ProductInformation = () => {
       </Accordion.Panel>
     </Accordion>
   );
-}
+};
 
-export default ProductInformation
+export default ProductInformation;
