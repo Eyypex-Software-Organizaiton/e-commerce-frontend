@@ -11,7 +11,12 @@ import { useContext } from "react";
 import { CardContext } from "../../context/CardContext";
 
 const ProductsList = () => {
-  const { getProduct, dataProduct, setDataProduct } = useContext(CardContext);
+  const { getProduct, dataProduct, setDataProduct, dataCategory } =
+    useContext(CardContext);
+
+  console.log(dataProduct);
+  console.log(dataCategory);
+
   const { slug } = useParams();
 
   const [gridClass, setGridClass] = useState("grid grid-cols-2 md:grid-cols-3");
@@ -20,9 +25,9 @@ const ProductsList = () => {
   const [initialValue, setInitialValue] = useState(dataProduct);
 
   useEffect(() => {
-    setDataProduct(productsListData[slug]);
-    setInitialValue(productsListData[slug]);
-    getProduct();
+    setDataProduct(dataProduct);
+    setInitialValue(dataProduct);
+    getProduct(slug);
   }, [slug]);
   // console.log(data);
   // sag üstteki 3lü 4 lü veya tekli listeleme fonksiyonu
@@ -41,9 +46,7 @@ const ProductsList = () => {
     val === "" && setDataProduct(initialValue);
   };
   const handleSortByPrice = () => {
-    const sortedData = [...dataProduct].sort(
-      (a, b) => a.discount_price - b.discount_price
-    );
+    const sortedData = [...dataProduct].sort((a, b) => a.price - b.price);
     return sortedData;
   };
   const handleSortByPriceReverse = () => {
@@ -52,7 +55,7 @@ const ProductsList = () => {
   };
   const handleSortByName = () => {
     const sortedData = [...dataProduct].sort((a, b) =>
-      a.title.localeCompare(b.title)
+      a.name.localeCompare(b.name)
     );
     return sortedData;
   };

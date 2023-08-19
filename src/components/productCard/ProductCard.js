@@ -4,18 +4,13 @@ import { TbShoppingCartPlus } from "react-icons/tb";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import "./ProductCard.css";
-import { useContext } from "react";
-import { CardContext } from "../../context/CardContext";
+
 const ProductCard = ({ product, activeIcon }) => {
-  // const { id, name, category["title"] } = product;
-  // const currentLocation = location.pathname
-  // console.log(discount)
   const navigate = useNavigate();
   const { slug } = useParams();
-  const { getIdCardProduct } = useContext(CardContext);
+
   const handleClickCard = () => {
-    navigate(`/${slug}/${product.category.slug}`);
-    getIdCardProduct(product.id);
+    navigate(`/${slug}/${product.slug}`);
   };
   return (
     <div

@@ -39,7 +39,7 @@ const AppRouter = () => {
         <Route path="/myprofile" element={<MainProfile />} />
         {/* <Route path="/kategori" element={<ProductsList />} /> */}
         <Route path="/:slug" element={<ProductsList />} />
-        <Route path="/:slug/:title" element={<ProductsDetails />} />
+        <Route path="/:slug/:slug" element={<ProductsDetails />} />
 
         <Route path="/sepet" element={<BasketDetail />} />
         <Route path="/siparis" element={<Order />} />

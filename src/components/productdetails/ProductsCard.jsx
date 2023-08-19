@@ -2,33 +2,34 @@ import React, { useEffect } from "react";
 import { SlBasket } from "react-icons/sl";
 import { FaTruck } from "react-icons/fa";
 import axios from "axios";
-import { useContext } from "react";
-import { CardContext } from "../../context/CardContext";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
 
 const ProductsCard = () => {
-  const { postBasket, productsCardData, basketData } = useContext(CardContext);
-  const [amountValue, setAmountValue] = useState(1);
-  const { name, id, gross_price, price } = productsCardData;
-
-  const handleAmountChange = (e) => {
-    setAmountValue(Number(e.target.value));
+  const getProductInfo = async () => {
+    try {
+      const URL = `http://127.0.0.1:8000/api/product/id={id}/`;
+      const { data } = await axios(URL);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  console.log(amountValue);
-  console.log(productsCardData);
+  useEffect(() => {
+    getProductInfo();
+  }, []);
 
   return (
     <div className="flex flex-col mx-12 ">
-      <h1 className="text-2xl  mb-4 font-semibold">{name}</h1>
+      <h1 className="text-2xl  mb-4 font-semibold">
+        Blanca 6231 2'li Sandalye
+      </h1>
       <hr />
       <div className="flex  flex-col text-center ">
         <div className="flex my-2 ">
           <div>
             <p className="text-red-600 text-xl text-left line-through">
-              {gross_price} TL
+              50.317,59 TL
             </p>
-            <p className="text-3xl">{price} TL</p>
+            <p className="text-3xl">10.317,59 TL</p>
           </div>
           <p className="bg-[#e5e9ee] text-blue-600 rounded-full w-28 text-center items-center flex justify-center h-14 font-semibold ml-10">
             %50 indirim
@@ -57,8 +58,6 @@ const ProductsCard = () => {
             <select
               id="small"
               class="block pl-4 ml-3  text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 w-20 text-center"
-              onChange={handleAmountChange}
-              value={amountValue}
             >
               <option selected>1</option>
               <option value="2">2</option>
@@ -90,9 +89,6 @@ const ProductsCard = () => {
           <p>29 Ağustos2023-9 Eylül 2023</p>
         </div>
         <button
-          onClick={() =>
-            postBasket({ ...basketData, product: id, amount: amountValue })
-          }
           type="button"
           class="text-white flex gap-1 mb-4 mt-4 items-center justify-center py-2 bg-blue-700 h-16 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-[50px] text-sm  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-[100%] m-auto"
         >
