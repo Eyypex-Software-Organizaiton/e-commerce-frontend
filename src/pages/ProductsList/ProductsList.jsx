@@ -1,64 +1,77 @@
-import React from 'react'
-import { productsListData } from '../../data/productListData/productsListData'
-import ProductCard from '../../components/productCard/ProductCard'
-import './ProductsList.css'
-import { useParams } from 'react-router-dom'
-import FilterProductCategory from '../../components/filterProductCategory/FilterProductCategory'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import React from "react";
+import { productsListData } from "../../data/productListData/productsListData";
+import ProductCard from "../../components/productCard/ProductCard";
+import "./ProductsList.css";
+import { useParams } from "react-router-dom";
+import FilterProductCategory from "../../components/filterProductCategory/FilterProductCategory";
+import { useState } from "react";
+import { useEffect } from "react";
+import useAxios from "../../hooks/useAxios";
+import { useContext } from "react";
+import { CardContext } from "../../context/CardContext";
 
 const ProductsList = () => {
-  const { slug } = useParams()
-  const [data, setData] = useState([])
-  const [initialValue, setInitialValue] = useState(data)
-  const [gridClass, setGridClass] = useState('grid grid-cols-2 md:grid-cols-3')
-  const [activeIcon, setActiveIcon] = useState(3)
-  const lengthOfData = data.length
+  const { getProduct, dataProduct, setDataProduct, dataCategory } =
+    useContext(CardContext);
+
+  console.log(dataProduct);
+  console.log(dataCategory);
+
+  const { slug } = useParams();
+
+  const [gridClass, setGridClass] = useState("grid grid-cols-2 md:grid-cols-3");
+  const [activeIcon, setActiveIcon] = useState(3);
+  const lengthOfData = dataProduct.length;
+  const [initialValue, setInitialValue] = useState(dataProduct);
+
   useEffect(() => {
-    setData(productsListData[slug])
-    setInitialValue(productsListData[slug])
-  }, [slug])
+    setDataProduct(dataProduct);
+    setInitialValue(dataProduct);
+    getProduct(slug);
+  }, [slug]);
+  // console.log(data);
   // sag üstteki 3lü 4 lü veya tekli listeleme fonksiyonu
   const listFunction = (x, y) => {
-    setGridClass(x)
-    setActiveIcon(y)
-  }
+    setGridClass(x);
+    setActiveIcon(y);
+  };
   // sol üstteki filtreleme fonksiyonu
+
   const filterFunction = (e) => {
-    const val = e.target.value
-    val === 'artan' && setData(handleSortByPrice())
-    val === 'azalan' && setData(handleSortByPriceReverse())
-    val === 'a-z' && setData(handleSortByName())
-    val === 'z-a' && setData(handleSortByNameReverse())
-    val === '' && setData(initialValue)
-  }
+    const val = e.target.value;
+    val === "artan" && setDataProduct(handleSortByPrice());
+    val === "azalan" && setDataProduct(handleSortByPriceReverse());
+    val === "a-z" && setDataProduct(handleSortByName());
+    val === "z-a" && setDataProduct(handleSortByNameReverse());
+    val === "" && setDataProduct(initialValue);
+  };
   const handleSortByPrice = () => {
-    const sortedData = [...data].sort(
-      (a, b) => a.discount_price - b.discount_price
-    )
-    return sortedData
-  }
+    const sortedData = [...dataProduct].sort((a, b) => a.price - b.price);
+    return sortedData;
+  };
   const handleSortByPriceReverse = () => {
-    const sortedData = handleSortByPrice().reverse()
-    return sortedData
-  }
+    const sortedData = handleSortByPrice().reverse();
+    return sortedData;
+  };
   const handleSortByName = () => {
-    const sortedData = [...data].sort((a, b) => a.title.localeCompare(b.title))
-    return sortedData
-  }
+    const sortedData = [...dataProduct].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    return sortedData;
+  };
   const handleSortByNameReverse = () => {
-    const sortedData = handleSortByName().reverse()
-    return sortedData
-  }
+    const sortedData = handleSortByName().reverse();
+    return sortedData;
+  };
   const handleStok = (e) => {
-    const filter = e.target.checked
+    const filter = e.target.checked;
     if (filter) {
-      const sortedData = data.filter((item) => item.stok)
-      setData(sortedData)
+      const sortedData = dataProduct.filter((item) => item.stok);
+      setDataProduct(sortedData);
     } else {
-      setData(initialValue)
+      setDataProduct(initialValue);
     }
-  }
+  };
   // const [data, setData] = useState([])
   // setData(productsListData[slug])
   // burada slug(kategori ismi olacak) ile backendend veri alacagız
@@ -67,7 +80,7 @@ const ProductsList = () => {
   // END of development
   return (
     <>
-      <div className='productContainer'>
+      <div className="productContainer">
         <FilterProductCategory
           listFunction={listFunction}
           filterFunction={filterFunction}
@@ -75,14 +88,22 @@ const ProductsList = () => {
           activeIcon={activeIcon}
           lengthOfData={lengthOfData}
         />
-        <div className={gridClass}>
-          {data.map((product, index) => (
-            <ProductCard key={index} product={product} />
+        <div
+          className={`${
+            activeIcon === 1 ? "flex flex-col w-full gap-4" : gridClass
+          }`}
+        >
+          {dataProduct.map((product, index) => (
+            <ProductCard
+              key={index}
+              product={product}
+              activeIcon={activeIcon}
+            />
           ))}
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProductsList
+export default ProductsList;

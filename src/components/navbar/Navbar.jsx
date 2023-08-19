@@ -14,24 +14,18 @@ import { useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { BsBasket } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { SlBasket } from "react-icons/sl";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function NavbarWithCTAButton() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   return (
     <Navbar className=" h-18 md:h-20 md:flex justify-between">
       {/* LOGO */}
 
       <div className="md:w-20  lg:w-40 xl:w-60 ">
-        <a href="/">
+        <Link to="/">
           <img src="./assets/NadideLogo.png" alt="" width={120} />
-        </a>
+        </Link>
       </div>
       <div className="flex md:order-2 ">
         <Navbar.Toggle />
@@ -44,7 +38,9 @@ export default function NavbarWithCTAButton() {
               <Sidebar.ItemGroup>
                 <Sidebar.Collapse label="MASA SANDALYE TAKIM">
                   <div className="">
-                    <Sidebar.Item href="#">AHŞAP AYAKLI TAKIMLAR</Sidebar.Item>
+                    <Sidebar.Item href="masa_sandalye_takim">
+                      AHŞAP AYAKLI TAKIMLAR
+                    </Sidebar.Item>
                     <Sidebar.Item href="#">METAL AYAKLI TAKIMLAR</Sidebar.Item>
                     <Sidebar.Item href="#">
                       YUVARLAK KARE MASA TAKIMLARI
@@ -52,12 +48,16 @@ export default function NavbarWithCTAButton() {
                   </div>
                 </Sidebar.Collapse>
                 <Sidebar.Collapse label="MASALAR">
-                  <Sidebar.Item href="">MDF MASALAR</Sidebar.Item>
+                  <Sidebar.Item href="masalar">
+                    MDF MASALAR
+                  </Sidebar.Item>
                   <Sidebar.Item href="#">SUNATLAM MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">KARE-YUVARLAK MASALAR</Sidebar.Item>
                 </Sidebar.Collapse>
                 <Sidebar.Collapse label="SANDALYELER">
-                  <Sidebar.Item href="#">AHŞAP AYAKLI SANDALYELER</Sidebar.Item>
+                  <Sidebar.Item href="sandalyeler">
+                    AHŞAP AYAKLI SANDALYELER
+                  </Sidebar.Item>
                   <Sidebar.Item href="#">METAL AYAKLI SANDALYELER</Sidebar.Item>
                   <Sidebar.Item href="#">BAR SANDALYELERİ</Sidebar.Item>
                 </Sidebar.Collapse>
@@ -77,43 +77,27 @@ export default function NavbarWithCTAButton() {
 
         {/* FLEX MENÜ */}
 
-        <div className="hidden md:flex  whitespace-nowrap items-center flex-shrink-0 md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all ">
-          <Navbar.Link
-            active
-            href="#"
-            onMouseEnter={handleDropdownToggle}
-            onMouseLeave={handleDropdownToggle}
-          >
-            <div inline label="MASA SANDALYE TAKIMI">
-              {" "}
-              asdasd
-              {isDropdownOpen && (
-                <div className="h-64 w-32 bg-slate-100 absolute top-[22px]">
-                  <span>AHŞAP AYAKLI TAKIMLAR</span>
-                  <span>METAL AYAKLI TAKIMLAR</span>
-                  <span>YUVARLAK/KARE MASA TAKIMLARI</span>
-                </div>
-              )}
-            </div>
-          </Navbar.Link>
-
-          <Navbar.Link
-            active
-            href="#"
-            onMouseEnter={handleDropdownToggle}
-            onMouseLeave={handleDropdownToggle}
-          >
-            <Dropdown inline label="MASALAR" className="">
-              {isDropdownOpen && (
-                <div className="  h-64 bg-slate-100 absolute top-[22px] ">
-                  <Dropdown.Item>MDF MASALAR</Dropdown.Item>
-                  <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
-                  <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
-                </div>
-              )}
+        <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all ">
+          <Navbar.Link active href="#" className="">
+            <Dropdown inline label="MASA SANDALYE TAKIMI">
+              <div className="h-64 bg-slate-100 absolute top-[22px] ">
+                <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
+                <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
+                <Dropdown.Item>YUVARLAK/KARE MASA TAKIMLARI</Dropdown.Item>
+              </div>
             </Dropdown>
           </Navbar.Link>
-          <Navbar.Link active href="/sandalyeler">
+
+          <Navbar.Link active href="/masalar">
+            <Dropdown inline label="MASALAR">
+              <div className="  h-64 bg-slate-100 absolute top-[22px] ">
+                <Dropdown.Item>MDF MASALAR</Dropdown.Item>
+                <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
+                <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
+              </div>
+            </Dropdown>
+          </Navbar.Link>
+          <Navbar.Link active onClick={() => navigate("/sandalyeler")}>
             <Dropdown inline label="SANDALYLER">
               <div className=" h-64 bg-slate-100 absolute top-[22px]">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
@@ -123,13 +107,17 @@ export default function NavbarWithCTAButton() {
             </Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link active href="/bench">
+          <Navbar.Link active onClick={() => navigate("/bench")}>
             <Dropdown inline label="BENCH"></Dropdown>
           </Navbar.Link>
-          <Navbar.Link active href="/metal-oturma-takim">
+          <Navbar.Link
+            active
+            onClick={() => navigate("/metal_oturma_takimlari")}
+          >
             <Dropdown inline label="METAL OTURMA GRUPLARI"></Dropdown>
           </Navbar.Link>
-          <Navbar.Link active href="/tv-ünitesi">
+
+          <Navbar.Link active onClick={() => navigate("/tv_unitesi")}>
             <Dropdown inline label="TV ÜNİTESİ"></Dropdown>
           </Navbar.Link>
         </div>

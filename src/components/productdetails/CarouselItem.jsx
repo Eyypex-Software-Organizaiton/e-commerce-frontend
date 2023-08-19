@@ -14,9 +14,11 @@ const CarouselItem = () => {
             <img
               width="640"
               height="360"
+              className='max-w-[640px]'
               data-lazy-src="https://lipsum.app/id/68/640x360"
             />
           </div>
+
           <div
             class="f-carousel__slide"
             data-thumb-src="https://lipsum.app/id/58/256x144"
@@ -65,6 +67,7 @@ const CarouselItem = () => {
               data-lazy-src="https://lipsum.app/id/63/640x360"
             />
           </div>
+          
         </div>
       </div>
     </div>

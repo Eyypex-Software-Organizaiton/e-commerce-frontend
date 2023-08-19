@@ -29,19 +29,23 @@ import ProductsCarousel from "../../components/productdetails/ProductsCarousel";
 
 
 const ProductsDetails = () => {
+
+  
   return (
     <>
-  
-    <div className="md:flex sm:block w-full">
-      <div className="w-[60%] m-8">
-        <ProductsCarousel />
+      <div className="lg:flex  w-full mb-10">
+        <div className="lg:w-[60%]  w-full m-8 flex">
+          <ProductsCarousel />
+          
+        </div>
+        <div className="lg:w-[40%] w-full">
+          <ProductsCard />
+        </div>
       </div>
-      <div className="w-[40%]">
-   <ProductsCard/>
+      <div className="lg:w-[60%] w-full mb-10">
+        <ProductInformation />
       </div>
-    </div> 
-    <ProductInformation/>
-     </>
+    </>
   );
 }
 
