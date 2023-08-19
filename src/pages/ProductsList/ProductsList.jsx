@@ -6,17 +6,28 @@ import { useParams } from "react-router-dom";
 import FilterProductCategory from "../../components/filterProductCategory/FilterProductCategory";
 import { useState } from "react";
 import { useEffect } from "react";
+import useAxios from "../../hooks/useAxios";
+import { useContext } from "react";
+import { CardContext } from "../../context/CardContext";
 
 const ProductsList = () => {
+  const { getProduct, dataProduct, setDataProduct, dataCategory } =
+    useContext(CardContext);
+
+  console.log(dataProduct);
+  console.log(dataCategory);
+
   const { slug } = useParams();
-  const [data, setData] = useState([]);
-  const [initialValue, setInitialValue] = useState(data);
+
   const [gridClass, setGridClass] = useState("grid grid-cols-2 md:grid-cols-3");
   const [activeIcon, setActiveIcon] = useState(3);
-  const lengthOfData = data.length;
+  const lengthOfData = dataProduct.length;
+  const [initialValue, setInitialValue] = useState(dataProduct);
+
   useEffect(() => {
-    setData(productsListData[slug]);
-    setInitialValue(productsListData[slug]);
+    setDataProduct(dataProduct);
+    setInitialValue(dataProduct);
+    getProduct(slug);
   }, [slug]);
   // console.log(data);
   // sag üstteki 3lü 4 lü veya tekli listeleme fonksiyonu
@@ -25,18 +36,17 @@ const ProductsList = () => {
     setActiveIcon(y);
   };
   // sol üstteki filtreleme fonksiyonu
+
   const filterFunction = (e) => {
     const val = e.target.value;
-    val === "artan" && setData(handleSortByPrice());
-    val === "azalan" && setData(handleSortByPriceReverse());
-    val === "a-z" && setData(handleSortByName());
-    val === "z-a" && setData(handleSortByNameReverse());
-    val === "" && setData(initialValue);
+    val === "artan" && setDataProduct(handleSortByPrice());
+    val === "azalan" && setDataProduct(handleSortByPriceReverse());
+    val === "a-z" && setDataProduct(handleSortByName());
+    val === "z-a" && setDataProduct(handleSortByNameReverse());
+    val === "" && setDataProduct(initialValue);
   };
   const handleSortByPrice = () => {
-    const sortedData = [...data].sort(
-      (a, b) => a.discount_price - b.discount_price
-    );
+    const sortedData = [...dataProduct].sort((a, b) => a.price - b.price);
     return sortedData;
   };
   const handleSortByPriceReverse = () => {
@@ -44,7 +54,9 @@ const ProductsList = () => {
     return sortedData;
   };
   const handleSortByName = () => {
-    const sortedData = [...data].sort((a, b) => a.title.localeCompare(b.title));
+    const sortedData = [...dataProduct].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
     return sortedData;
   };
   const handleSortByNameReverse = () => {
@@ -54,10 +66,10 @@ const ProductsList = () => {
   const handleStok = (e) => {
     const filter = e.target.checked;
     if (filter) {
-      const sortedData = data.filter((item) => item.stok);
-      setData(sortedData);
+      const sortedData = dataProduct.filter((item) => item.stok);
+      setDataProduct(sortedData);
     } else {
-      setData(initialValue);
+      setDataProduct(initialValue);
     }
   };
   // const [data, setData] = useState([])
@@ -76,8 +88,12 @@ const ProductsList = () => {
           activeIcon={activeIcon}
           lengthOfData={lengthOfData}
         />
-        <div className={`${activeIcon===1 ? "flex flex-col w-full gap-4": gridClass}`}>
-          {data.map((product, index) => (
+        <div
+          className={`${
+            activeIcon === 1 ? "flex flex-col w-full gap-4" : gridClass
+          }`}
+        >
+          {dataProduct.map((product, index) => (
             <ProductCard
               key={index}
               product={product}

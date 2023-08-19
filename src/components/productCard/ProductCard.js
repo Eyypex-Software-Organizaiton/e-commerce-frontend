@@ -4,14 +4,16 @@ import { TbShoppingCartPlus } from "react-icons/tb";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import "./ProductCard.css";
+
 const ProductCard = ({ product, activeIcon }) => {
-  const location = useLocation();
-  const { id, price, discount_price, discount, shipping, img, title, stok } =
-    product;
-  // const currentLocation = location.pathname
-  // console.log(discount)
+
   const navigate = useNavigate();
   const { slug } = useParams();
+
+  const handleClickCard = () => {
+    navigate(`/${slug}/${product.slug}`);
+
+  };
   return (
     <div
       className={` ${
@@ -19,15 +21,17 @@ const ProductCard = ({ product, activeIcon }) => {
           ? "flex justify-between"
           : "productCard max-w-sm relative hover:text-gray-700"
       }`}
-      onClick={() => navigate(`/${slug}/${title}`)}
+      onClick={handleClickCard}
     >
       <div>
         <img
-          className={`${activeIcon === 1 ? "w-[200px] " : "rounded-t-lg card-img"} `}
-          src={"/assets/images/" + img}
+          className={`${
+            activeIcon === 1 ? "w-[200px] " : "rounded-t-lg card-img"
+          } `}
+          src="/assets/card1.jpeg"
           alt="not found"
         />
-        {!stok && (
+        {!product.stock && (
           <div
             key="asd"
             className="absolute bottom-2 px-1.5 leading-8 bg-white"
@@ -35,7 +39,7 @@ const ProductCard = ({ product, activeIcon }) => {
             Tükendi
           </div>
         )}
-        {stok && (
+        {product.stock && (
           <div className="icons hidden absolute inset-0 items-center justify-evenly">
             <div className="icon-container">
               <TbShoppingCartPlus className="" />
@@ -50,25 +54,31 @@ const ProductCard = ({ product, activeIcon }) => {
         )}
       </div>
 
-      <div className={`${activeIcon === 1 ? "flex justify-between gap-2 w-[850px] items-center " : "p-5"} `}>
-        <Link to={title}>
+      <div
+        className={`${
+          activeIcon === 1
+            ? "flex justify-between gap-2 w-[850px] items-center "
+            : "p-5"
+        } `}
+      >
+        <Link to={product.category.title}>
           <h5 className="mb-2 sm:text-xl md:text-2xl font-bold tracking-tight truncate">
-            {title}
+            {product.name}
           </h5>
         </Link>
         <div className="flex gap-x-2">
           <p className="price mb-3 font-normal text-[#616c70] line-through">
-            {price}
+            {product.gross_price}
           </p>
-          <p className="price mb-3 font-normal text-black">{discount_price}</p>
+          <p className="price mb-3 font-normal text-black">{product.price}</p>
         </div>
       </div>
-      {discount !== 0 && (
+      {product.discount_percentage !== 0 && (
         <div className="absolute top-0 right-0 px-1.5 gray-container discount">
-          {discount}
+          {product.discount_percentage}
         </div>
       )}
-      {shipping && (
+      {product.kdv && (
         <div className="absolute top-8 right-0 px-1.5 gray-container">
           Ücretsiz Kargo
         </div>

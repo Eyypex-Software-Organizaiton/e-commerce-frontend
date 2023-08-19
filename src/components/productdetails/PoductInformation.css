@@ -1,4 +1,10 @@
-.x {
-    transition: all 0.9s ease-in-out !important;
-  transition-duration: 0.9s !important; /* You can change this value to make it slower */
+
+.panel-content p{
+  /* max-height: 0; */
+  /* overflow: hidden; */
+  transition: all 5s ease-in-out !important; /* Geçiş özelliklerini burada tanımladık */
+}
+
+.divide-y > :not([hidden]) ~ :not([hidden]){
+    transition: all 5s ease-in-out !important;
 }
