@@ -10,6 +10,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { useContext } from "react";
 import { CardContext } from "../../context/CardContext";
+import { UserContext } from "../../context/UserContext";
 
 const BasketDetail = () => {
   // const [localBasket, setLocalBasket] = useState({
@@ -41,7 +42,8 @@ const BasketDetail = () => {
     is_membership: true,
   });
 
-  const { register, getBasket, login } = useContext(CardContext);
+  const { register, login } = useContext(UserContext);
+  const { getBasket } = useContext(CardContext);
 
   useEffect(() => {
     // register(loginData);

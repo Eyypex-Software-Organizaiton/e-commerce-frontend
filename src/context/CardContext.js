@@ -8,24 +8,37 @@ export const CardContext = createContext();
 const CardContextProvider = ({ children }) => {
   const [productsCardData, setProductsCardData] = useState("");
   const [dataProduct, setDataProduct] = useState([]);
-  const [basketData, setBasketData] = useState({ product: "", amount: "" });
+  const [basketData, setBasketData] = useState({});
   const { axiosWithToken, axiosPublic } = useAxios();
 
+  //* Sepetten Veri Çekme
   const getBasket = async () => {
     try {
       const { data } = await axiosWithToken("basket/");
-
-      console.log(data);
+      setBasketData(data);
+      console.log(basketData);
     } catch (error) {
       console.log(error);
     }
   };
 
+  //? Sepete Gönderme
   const postBasket = async (basketData) => {
     try {
       const { data } = await axiosWithToken.post("basket/", basketData);
       console.log(data);
-      // setBasketData({...data, id:data.id,amount:data. })
+      getBasket();
+      // console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //! Sepetten Veri Silme
+  const deleteBasket = async (basketData) => {
+    try {
+      const { data } = await axiosWithToken.delete("basket/", basketData);
+      console.log(data);
       getBasket();
       // console.log(data);
     } catch (error) {
