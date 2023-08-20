@@ -2,7 +2,7 @@ import axios from "axios";
 
 const useAxios = () => {
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkyMzAyNjk5LCJpYXQiOjE2OTIyOTU0OTksImp0aSI6Ijc0ZjA3MTNmOTc2ZDQ2ODRiMThkZDdkZGNlNzI4NzQyIiwidXNlcl9pZCI6NH0.f0LdEeABXw3bwh5EcbuV7JOuqhaDoP3thfMl80Pht1o";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkyNTA1Mzg1LCJpYXQiOjE2OTI0OTgxODUsImp0aSI6IjY2NzI2OTQ3MTM1OTQ0ZDhhNzdhYmUwYTgyYzFmOTExIiwidXNlcl9pZCI6NX0.pTg-T6JxZClu6v5cK5-qQMap-hj_O1DRkUM1r0yvhRk";
   // const { tokenState } = useContext(CardContext);
 
   const axiosPublic = axios.create({

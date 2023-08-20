@@ -14,9 +14,9 @@ const BasketDetailInDetail = ({
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const { id, img, taxRate, price, amount } = dataItem;
-  const totalPrice = element.price * element.amount;
+  const totalPrice = element.total_price;
   // const taxPrice = price*amount*tax
-  const taxRatePrice = (element.price * element.amount * element.taxRate) / 100;
+  const taxRatePrice = (element.total_price * 18) / 100;
 
   return (
     <div>
@@ -25,13 +25,13 @@ const BasketDetailInDetail = ({
           <div className="mr-4 flex items-center">
             <img
               className="h-16 w-16 sm:h-28 sm:w-28 md:w-40 md:h-40 xl:w-40 xl:h-40 lg:w-28 lg:h-28  "
-              src={element.img}
+              src={element.img || "/assets/card2.jpeg"}
               alt="orderInBasket"
             />
           </div>
           <div className="flex justify-between items-center w-full relative z-0">
             <div
-              onClick={() => handleDelete(element.id)}
+              onClick={() => handleDelete(element.product)}
               className="xs:block lg:hidden absolute top-0 right-0 cursor-pointer "
             >
               ❌
@@ -45,7 +45,7 @@ const BasketDetailInDetail = ({
                   <RiDeleteBin6Line />
                 </div>
                 <button
-                  onClick={() => handleDelete(element.id)}
+                  onClick={() => handleDelete(element.product)}
                   className="text-sm "
                 >
                   Sepetten Sil
@@ -55,7 +55,7 @@ const BasketDetailInDetail = ({
 
             <div className="flex mx-2 min-w-[90px] max-w-[100px]">
               <button
-                onClick={() => handleDecrease(element.id)}
+                onClick={() => handleDecrease(element.product)}
                 className="border-2 p-2"
               >
                 -
@@ -64,14 +64,14 @@ const BasketDetailInDetail = ({
                 <input
                   type="text"
                   name="number"
-                  id={element.id}
+                  id={element.product}
                   value={element.amount}
                   className="text-center w-full text-sm border-none"
                 />
               </div>
 
               <button
-                onClick={() => handleIncrease(element.id)}
+                onClick={() => handleIncrease(element.product)}
                 className="border-2 p-2"
               >
                 +

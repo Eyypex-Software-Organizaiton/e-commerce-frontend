@@ -1,37 +1,32 @@
 import React from "react";
-import { AiOutlineSmallDash, AiOutlineUserAdd } from "react-icons/ai";
 
 const BasketSummary = ({ basketData }) => {
-  const totalPrice = basketData
-    .reduce((accumulator, item) => {
-      return accumulator + item.price * item.amount;
-    }, 0)
-    .toFixed(2);
-
-  const formattedPriceString = totalPrice.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-
-  const formattedPriceNumber = parseFloat(
-    formattedPriceString.replace(",", ".")
+  const totalPrice = basketData?.basket_products?.reduce(
+    (accumulator, item) => {
+      return accumulator + Number(item.total_price);
+    },
+    0
   );
+  // .toFixed(2);
 
-  console.log(formattedPriceNumber);
+  // const formattedPriceString = totalPrice.toLocaleString(undefined, {
+  //   minimumFractionDigits: 2,
+  //   maximumFractionDigits: 2,
+  // });
+
+  // const formattedPriceNumber = parseFloat(
+  //   formattedPriceString.replace(",", ".")
+  // );
 
   const taxRatePrice = Number(
-    basketData
-      .reduce((accumulator, item) => {
-        return accumulator + (item.price * item.amount * item.taxRate) / 100;
-      }, 0)
-      .toFixed(2)
-      .replace(",", ".")
+    basketData?.basket_products?.reduce((accumulator, item) => {
+      return accumulator + (Number(item.total_price) * 20) / 100;
+    }, 0)
+    // .toFixed(2)
+    // .replace(",", ".")
   );
 
-  console.log(taxRatePrice);
   const total = totalPrice - taxRatePrice;
-  console.log(total);
-
   return (
     <div className="max-w-[300px] ml-2 border-2">
       <div className="px-2 pt-1">SEPET ÖZETİ</div>

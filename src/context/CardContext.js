@@ -10,7 +10,7 @@ const CardContextProvider = ({ children }) => {
   const [dataProduct, setDataProduct] = useState([]);
 
   const [dataCategory, setDataCategory] = useState([]);
-  const [basketData, setBasketData] = useState({ product: "", amount: "" });
+  const [basketData, setBasketData] = useState({});
 
   const { axiosWithToken, axiosPublic } = useAxios();
 
@@ -29,8 +29,7 @@ const CardContextProvider = ({ children }) => {
 
   const postBasket = async (basketData) => {
     try {
-      const { data } = await axiosWithToken.post("basket/", basketData);
-      console.log(data);
+      await axiosWithToken.post("basket/", basketData);
       getBasket();
       // console.log(data);
     } catch (error) {
@@ -39,14 +38,14 @@ const CardContextProvider = ({ children }) => {
   };
 
   //! Sepetten Veri Silme
-  const deleteBasket = async (basketData) => {
+  const deleteBasket = async (aa) => {
+    console.log(aa.amount, aa.product);
     try {
-      const { data } = await axiosWithToken.delete("basket/", basketData);
-      console.log(data);
+      await axiosWithToken.delete("basket/", aa);
       getBasket();
       // console.log(data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -91,10 +90,11 @@ const CardContextProvider = ({ children }) => {
     dataProduct,
     setDataProduct,
     postBasket,
-    getIdCardProduct,
     productsCardData,
     basketData,
     dataCategory,
+    deleteBasket,
+    setBasketData,
   };
   return <CardContext.Provider value={values}>{children}</CardContext.Provider>;
 };
