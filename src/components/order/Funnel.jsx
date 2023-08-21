@@ -52,7 +52,7 @@ const Funnel = ({activeTab , setActiveTab}) => {
           <span className="block md:text-5xl font-semibold text-gray-600">
             3.
           </span>
-          <div className="">
+          <div className="cursor-pointer">
             <h2 className="font-medium">SİPARİŞ ONAYI</h2>
             <p className="tracking-tight">Siparişinizin Özeti</p>
           </div>

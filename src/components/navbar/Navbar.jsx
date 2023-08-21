@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 // import nadidelogo from "./assets/NadideLogo.png";
 import { SlBasket } from "react-icons/sl";
@@ -15,216 +13,216 @@ const Navbars = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    
-      <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-        <div className=" flex flex-wrap items-center justify-between mx-auto  px-10">
-          {/* LOGO */}
-          <div>
-            <a href="#" className="flex items-center md:w-20  lg:w-26 xl:w-40">
-              <img src='./assets/NadideLogo.png' className="h-12 mr-3" alt="Flowbite Logo" />
-            </a>
-          </div>
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <div className=" flex flex-wrap items-center justify-between mx-auto  px-10">
+        {/* LOGO */}
+        <div>
+          <a href="#" className="flex items-center md:w-20  lg:w-26 xl:w-40">
+            <img
+              src="./assets/NadideLogo.png"
+              className="h-12 mr-3"
+              alt="Flowbite Logo"
+            />
+          </a>
+        </div>
 
-          {/* //! hamurgericon button */}
-          <button
-            data-collapse-toggle="navbar-dropdown"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500  md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-controls="navbar-dropdown"
-            aria-expanded={isMenuOpen}
-            onClick={handleMenuToggle}
+        {/* //! hamurgericon button */}
+        <button
+          data-collapse-toggle="navbar-dropdown"
+          type="button"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500  md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="navbar-dropdown"
+          aria-expanded={isMenuOpen}
+          onClick={handleMenuToggle}
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
           >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } w-full md:block md:w-auto  `}
+        >
           <div
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } w-full md:block md:w-auto `}
+            className="flex flex-col font-medium p-4 md:p-0 mt-4 border-2  md:border-0 md:flex-row md:mt-0 whitespace-nowrap md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:text-[10px] lg:text-[12px] xl:text-[16px]"
+            id="navbar-dropdown"
           >
-            <div
-              className="flex flex-col font-medium p-4 md:p-0 mt-4 border-2  md:border-0 md:flex-row md:mt-0 whitespace-nowrap md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:text-[10px] lg:text-[12px] xl:text-[16px]"
-              id="navbar-dropdown"
-            >
-              <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
-                <button
-                  type="button"
-                  className="  md:px-2 py-4 transition duration-400 ease-in-out "
+            <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
+              <button
+                type="button"
+                className="  md:px-2 py-4 transition duration-400 ease-in-out "
+              >
+                <a href="/ahsap-ayakli-takimlar">Masa Sandalye Takım</a>
+              </button>
+              <div className="origin-top-right p-4 absolute hidden  w-60 h-40 top-[88px] z-10 shadow-lg bg-white ring-1 ring-black ring-opacity-5 group-hover:block">
+                <div
+                  className="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
                 >
-                  Masa Sandalye Takım
-                </button>
-                <div className="origin-top-right p-4 absolute hidden  w-60 h-40 top-[88px] z-10 shadow-lg bg-white ring-1 ring-black ring-opacity-5 group-hover:block">
-                  <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
+                  <a
+                    href="#"
+                    className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
                   >
-                    <a
-                      href="#"
-                      className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Ahşap Ayaklı Takımlar
-                    </a>
-                    <a
-                      href="#"
-                      className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Metal Ayaklı Takımlar
-                    </a>
-                    <a
-                      href="#"
-                      className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Yuvarlak/Kare Masa Takımları
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
-                <button
-                  type="button"
-                  className="  md:px-2 py-4 transition duration-400 ease-in-out "
-                >
-                  Masalar
-                </button>
-                <div className="origin-top-right p-4 absolute hidden  w-60 h-40 top-[88px] z-10 shadow-lg bg-white ring-1 ring-black ring-opacity-5 group-hover:block">
-                  <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
+                    Ahşap Ayaklı Takımlar
+                  </a>
+                  <a
+                    href="#"
+                    className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
                   >
-                    <a
-                      href="#"
-                      className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      MDF Masalar
-                    </a>
-                    <a
-                      href="#"
-                      className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Suntalam Masalar
-                    </a>
-                    <a
-                      href="#"
-                      className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Yuvarlak/Kare Masalar
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
-                <button
-                  type="button"
-                  className="  md:px-2 py-4 transition duration-400 ease-in-out "
-                >
-                  Sandalyeler
-                </button>
-                <div className="origin-top-right p-4 absolute hidden  w-60 h-40 top-[88px] z-10  shadow-lg bg-white ring-1 ring-black ring-opacity-5 group-hover:block">
-                  <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
+                    Metal Ayaklı Takımlar
+                  </a>
+                  <a
+                    href="#"
+                    className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
                   >
-                    <a
-                      href="#"
-                      className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Ahşap Ayaklı Sandalyeler
-                    </a>
-                    <a
-                      href="#"
-                      className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Metal Ayaklı Sandalyeler
-                    </a>
-                    <a
-                      href="#"
-                      className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                    >
-                      Bar Sandalyelerı
-                    </a>
-                  </div>
+                    Yuvarlak/Kare Masa Takımları
+                  </a>
                 </div>
-              </div>
-              <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
-                <a
-                  href="#"
-                  type="button"
-                  className="  md:px-2 py-4 transition duration-400 ease-in-out "
-                >
-                  Bench
-                </a>
-              </div>
-              <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
-                <a
-                  href="#"
-                  type="button"
-                  className="  md:px-2 py-4 transition duration-400 ease-in-out "
-                >
-                  Metal Oturma Takımları
-                </a>
-              </div>
-              <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
-                <a
-                  href="#"
-                  type="button"
-                  className="  md:px-2 py-4 transition duration-400 ease-in-out "
-                >
-                  TV Ünitesi
-                </a>
               </div>
             </div>
-          </div>
-
-          <div className="hidden md:flex gap-5  lg:text-[16px] xl:text-[20px]">
-            <a href="/basket">
-              <SlBasket className="cursor-pointer" />
-            </a>
-            <a href="/myprofile">
-              <BiUser className="cursor-pointer" />
-            </a>
-            <AiOutlineUserAdd className="cursor-pointer" />
-            <BiSearch className="cursor-pointer" />
+            <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
+              <button
+                type="button"
+                className="  md:px-2 py-4 transition duration-400 ease-in-out "
+              >
+               <a href="/masalar">Masalar</a> 
+              </button>
+              <div className="origin-top-right p-4 absolute hidden  w-60 h-40 top-[88px] z-10 shadow-lg bg-white ring-1 ring-black ring-opacity-5 group-hover:block">
+                <div
+                  className="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  <a
+                    href="#"
+                    className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    MDF Masalar
+                  </a>
+                  <a
+                    href="#"
+                    className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Suntalam Masalar
+                  </a>
+                  <a
+                    href="#"
+                    className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Yuvarlak/Kare Masalar
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
+              <button
+                type="button"
+                className="  md:px-2 py-4 transition duration-400 ease-in-out "
+              >
+               <a href="/sandalyeler">Sandalyeler</a> 
+              </button>
+              <div className="origin-top-right p-4 absolute hidden  w-60 h-40 top-[88px] z-10  shadow-lg bg-white ring-1 ring-black ring-opacity-5 group-hover:block">
+                <div
+                  className="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  <a
+                    href="#"
+                    className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Ahşap Ayaklı Sandalyeler
+                  </a>
+                  <a
+                    href="#"
+                    className="block  py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Metal Ayaklı Sandalyeler
+                  </a>
+                  <a
+                    href="#"
+                    className="block py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Bar Sandalyelerı
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
+              <a
+                href="#"
+                type="button"
+                className="  md:px-2 py-4 transition duration-400 ease-in-out "
+              >
+                Bench
+              </a>
+            </div>
+            <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
+              <a
+                href="#"
+                type="button"
+                className="  md:px-2 py-4 transition duration-400 ease-in-out "
+              >
+                Metal Oturma Takımları
+              </a>
+            </div>
+            <div className="relative inline-block text-left group p-4 hover:bg-gray-500 hover:text-white">
+              <a
+                href="#"
+                type="button"
+                className="  md:px-2 py-4 transition duration-400 ease-in-out "
+              >
+                TV Ünitesi
+              </a>
+            </div>
           </div>
         </div>
-      </nav>
-    
+
+        <div className="hidden md:flex gap-5  lg:text-[16px] xl:text-[20px]">
+          <a href="/basket">
+            <SlBasket className="cursor-pointer" />
+          </a>
+          <a href="/myprofile">
+            <BiUser className="cursor-pointer" />
+          </a>
+          <AiOutlineUserAdd className="cursor-pointer" />
+          <BiSearch className="cursor-pointer" />
+        </div>
+      </div>
+    </nav>
   );
 };
 
 export default Navbars;
 
-
 // import { Dropdown, Navbar, Sidebar } from "flowbite-react";
-
 
 // import { BiUser } from "react-icons/bi";
 // import { AiOutlineUserAdd } from "react-icons/ai";
