@@ -8,30 +8,44 @@ export const CardContext = createContext();
 const CardContextProvider = ({ children }) => {
   const [productsCardData, setProductsCardData] = useState("");
   const [dataProduct, setDataProduct] = useState([]);
+
   const [dataCategory, setDataCategory] = useState([]);
-  const [basketData, setBasketData] = useState({ product: "", amount: "" });
+  const [basketData, setBasketData] = useState({});
 
   const { axiosWithToken, axiosPublic } = useAxios();
 
+  //* Sepetten Veri Çekme
   const getBasket = async () => {
     try {
       const { data } = await axiosWithToken("basket/");
-
-      console.log(data);
+      setBasketData(data);
+      console.log(basketData);
     } catch (error) {
       console.log(error);
     }
   };
 
+  //? Sepete Gönderme
+
   const postBasket = async (basketData) => {
     try {
-      const { data } = await axiosWithToken.post("basket/", basketData);
-      console.log(data);
-      // setBasketData({...data, id:data.id,amount:data. })
+      await axiosWithToken.post("basket/", basketData);
       getBasket();
       // console.log(data);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  //! Sepetten Veri Silme
+  const deleteBasket = async (aa) => {
+    console.log(aa.amount, aa.product);
+    try {
+      await axiosWithToken.delete("basket/", aa);
+      getBasket();
+      // console.log(data);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -64,15 +78,6 @@ const CardContextProvider = ({ children }) => {
 
   console.log(dataFilter);
 
-  const getIdCardProduct = async (id) => {
-    try {
-      const { data } = await axiosPublic(`product/${id}`);
-      setProductsCardData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     getBasket();
     getProduct();
@@ -85,10 +90,11 @@ const CardContextProvider = ({ children }) => {
     dataProduct,
     setDataProduct,
     postBasket,
-    getIdCardProduct,
     productsCardData,
     basketData,
     dataCategory,
+    deleteBasket,
+    setBasketData,
   };
   return <CardContext.Provider value={values}>{children}</CardContext.Provider>;
 };

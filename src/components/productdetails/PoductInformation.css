@@ -1,10 +1,9 @@
-
-.panel-content p{
+.panel-content p {
   /* max-height: 0; */
   /* overflow: hidden; */
   transition: all 5s ease-in-out !important; /* Geçiş özelliklerini burada tanımladık */
 }
 
-.divide-y > :not([hidden]) ~ :not([hidden]){
-    transition: all 5s ease-in-out !important;
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  transition: all 5s ease-in-out !important;
 }

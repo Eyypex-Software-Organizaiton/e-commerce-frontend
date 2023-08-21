@@ -73,7 +73,6 @@
 
 // export default ProductInformation
 
-
 import React from "react";
 import { Accordion } from "flowbite-react";
 import { Table } from "flowbite-react";

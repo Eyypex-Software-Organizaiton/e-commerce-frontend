@@ -6,13 +6,11 @@ import { BiSearch } from "react-icons/bi";
 import "./ProductCard.css";
 
 const ProductCard = ({ product, activeIcon }) => {
-
   const navigate = useNavigate();
   const { slug } = useParams();
 
   const handleClickCard = () => {
     navigate(`/${slug}/${product.slug}`);
-
   };
   return (
     <div
