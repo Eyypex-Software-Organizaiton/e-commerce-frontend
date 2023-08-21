@@ -5,46 +5,49 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
+import { useContext } from "react";
+import { CardContext } from "../../context/CardContext";
 
 const ProductsCard = () => {
-    const { axiosWithToken, axiosPublic } = useAxios();
-    const [produc, setProduc] = useState([])
-    const [amountValue, setAmountValue] = useState(1);
-      const handleAmountChange = (e) => {
-        setAmountValue(Number(e.target.value));
-      };
-      
-//     const location=useLocation()
-//  const slugData = location.pathname
-//  console.log(slugData);
-const {slug}=useParams()
-console.log(slug);
+  const { axiosWithToken, axiosPublic } = useAxios();
+  const [produc, setProduc] = useState([]);
+  const [amountValue, setAmountValue] = useState(1);
+  const { postBasket, basketData, deleteBasket, getBasket } =
+    useContext(CardContext);
+  const handleAmountChange = (e) => {
+    setAmountValue(Number(e.target.value));
+  };
 
-const getProductInfo = async () => {
+  //     const location=useLocation()
+  //  const slugData = location.pathname
+  //  console.log(slugData);
+  const { slug } = useParams();
+  console.log(slug);
 
-  try {
-    const { data } = await axiosPublic("product/");
- const newData=data.data.filter((item)=>{
- return item.slug == slug;
+  const getProductInfo = async () => {
+    try {
+      const { data } = await axiosPublic("product/");
+      const newData = data.data.filter((item) => {
+        return item.slug == slug;
+      });
+      setProduc(newData);
+      console.log(newData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
- })
- setProduc(newData)
-    console.log(newData);
-  } catch (error) {
-    console.log(error);
-  }
-};
+  useEffect(() => {
+    getProductInfo();
+    getBasket();
+  }, [amountValue]);
 
-useEffect(() => {
-getProductInfo()
-}, [])
-
-console.log(produc);
+  console.log(produc);
 
   return (
     <>
       {produc.map((item, i) => (
-        <div className="flex flex-col mx-12 ">
+        <div key={i} className="flex flex-col mx-12 ">
           <h1 className="text-2xl  mb-4 font-semibold">{item.name}</h1>
           <hr />
           <div className="flex  flex-col text-center ">
@@ -56,7 +59,7 @@ console.log(produc);
                 <p className="text-3xl">{item.price} TL</p>
               </div>
               <p className="bg-[#e5e9ee] text-blue-600 rounded-full w-28 text-center items-center flex justify-center h-14 font-semibold ml-10">
-                %{(item.discount_percentage).toFixed(2)} İNDİRİM
+                %{item.discount_percentage.toFixed(2)} İNDİRİM
               </p>
             </div>
             <hr />
@@ -115,12 +118,25 @@ console.log(produc);
               <p>29 Ağustos2023-9 Eylül 2023</p>
             </div>
             <button
+              onClick={() =>
+                postBasket({
+                  ...basketData,
+                  product: item.id,
+                  amount: amountValue,
+                })
+              }
               type="button"
               class="text-white flex gap-1 mb-4 mt-4 items-center justify-center py-2 bg-blue-700 h-16 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-[50px] text-sm  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-[100%] m-auto"
             >
               Sepete Ekle <SlBasket />
             </button>
             <button
+              onClick={() =>
+                deleteBasket({
+                  product: item.id,
+                  amount: amountValue,
+                })
+              }
               type="button"
               class="text-white flex  items-center justify-center py-2 gap-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-[50px] text-sm h-16   dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-[100%] m-auto"
             >

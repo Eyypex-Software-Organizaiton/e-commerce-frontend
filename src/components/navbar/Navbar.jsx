@@ -1,25 +1,17 @@
-"use client";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
 import { Dropdown, Navbar, Sidebar } from "flowbite-react";
-import { useState } from "react";
-
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { SlBasket } from "react-icons/sl";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { BsBasket } from "react-icons/bs";
+import { useContext } from "react";
+import { CardContext } from "../../context/CardContext";
 
 export default function NavbarWithCTAButton() {
-  const navigate=useNavigate()
-      const { slug } = useParams();
+  const { basketData } = useContext(CardContext);
+  const navigate = useNavigate();
+  const { slug } = useParams();
+
   return (
     <Navbar className=" h-18 md:h-20 md:flex justify-between">
       {/* LOGO */}
@@ -50,9 +42,7 @@ export default function NavbarWithCTAButton() {
                   </div>
                 </Sidebar.Collapse>
                 <Sidebar.Collapse label="MASALAR">
-                  <Sidebar.Item href="masalar">
-                    MDF MASALAR
-                  </Sidebar.Item>
+                  <Sidebar.Item href="masalar">MDF MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">SUNATLAM MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">KARE-YUVARLAK MASALAR</Sidebar.Item>
                 </Sidebar.Collapse>
@@ -85,9 +75,7 @@ export default function NavbarWithCTAButton() {
               <div className="h-64 bg-slate-100 absolute top-[22px] ">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
                 <Dropdown.Item>METAL AYAKLI TAKIMLAR</Dropdown.Item>
-                <Dropdown.Item onClick={() => navigate(`/urun/${slug}`)}>
-                  YUVARLAK/KARE MASA TAKIMLARI
-                </Dropdown.Item>
+                <Dropdown.Item>YUVARLAK/KARE MASA TAKIMLARI</Dropdown.Item>
               </div>
             </Dropdown>
           </Navbar.Link>
@@ -95,9 +83,13 @@ export default function NavbarWithCTAButton() {
           <Navbar.Link active onClick={() => navigate("/masalar")}>
             <Dropdown inline label="MASALAR">
               <div className="  h-64 bg-slate-100 absolute top-[22px] ">
-                <Dropdown.Item >MDF MASALAR</Dropdown.Item>
+                <Dropdown.Item>MDF MASALAR</Dropdown.Item>
                 <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
-                <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => navigate("/kare-yuvarlak-masalar")}
+                >
+                  KARE YUVARLAK MASALAR
+                </Dropdown.Item>
               </div>
             </Dropdown>
           </Navbar.Link>
@@ -128,10 +120,16 @@ export default function NavbarWithCTAButton() {
       </Navbar.Collapse>
 
       {/* İCONLAR */}
-      <div className="hidden md:flex gap-5  text-xl">
-        <a href="/basket">
-          <SlBasket className="cursor-pointer" />
-        </a>
+      <div className="hidden md:flex gap-5  text-xl relative">
+        {basketData?.basket_products?.length > 0 && (
+          <p className="bg-red-400 rounded-full w-4 h-4 text-center text-xs font-bold absolute bottom-[19px] left-[2px]  z-10">
+            <span>{basketData.basket_products.length}</span>
+          </p>
+        )}
+
+        <Link to="/sepet">
+          <BsBasket className="cursor-pointer" />
+        </Link>
         <Link to="/myprofile">
           <BiUser className="cursor-pointer" />
         </Link>

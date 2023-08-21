@@ -10,6 +10,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { useContext } from "react";
 import { CardContext } from "../../context/CardContext";
+import { UserContext } from "../../context/UserContext";
 
 const BasketDetail = () => {
   // const [localBasket, setLocalBasket] = useState({
@@ -21,19 +22,11 @@ const BasketDetail = () => {
   // const [loginState, setLoginState] = useState(
   //   JSON.parse(localStorage.setItem("userInfo")) || ""
   // ); //! Login durumunda yapılacak Local
-  const [basketData, setBasketData] = useState(images);
+  const { basketData, getBasket, setBasketData } = useContext(CardContext);
   const [openModal, setOpenModal] = useState(false);
-  const [dataItem] = basketData.map((item) => item);
+  const [basketDataMock, setBasketDataMock] = useState(images);
+  const [dataItem] = basketDataMock.map((item) => item);
 
-  // const getBasket = async () => {
-  //   try {
-  //     const BASE_URL_BASKET = `http://127.0.0.1:8000/api/basket/`;
-  //     const { data } = await axios.get(BASE_URL_BASKET);
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const [loginData, setLoginData] = useState({
     email: "fs@fs.com",
     password: "Aa123456.",
@@ -41,20 +34,26 @@ const BasketDetail = () => {
     is_membership: true,
   });
 
-  const { register, getBasket, login } = useContext(CardContext);
+  const { register, login } = useContext(UserContext);
 
   useEffect(() => {
     // register(loginData);
     login(loginData);
+  }, []);
+  useEffect(() => {
     getBasket();
   }, []);
 
   const handleDelete = (id) => {
-    const newProducts = basketData.filter((data) => data.id !== id);
+    const newProducts = basketData?.basket_products?.filter(
+      (data) => data.id !== id
+    );
     setBasketData(newProducts);
   };
   const modalDelete = (id) => {
-    const newProducts = basketData.filter((data) => data.id !== id);
+    const newProducts = basketData?.basket_products?.filter(
+      (data) => data.id !== id
+    );
     setBasketData(newProducts);
   };
 
@@ -63,32 +62,37 @@ const BasketDetail = () => {
     //   setOpenModal(true);
     //   console.log(openModal);
     // }
-    const newProducts = basketData.map((item, i) => {
+    const newProducts = basketData?.basket_products?.map((item, i) => {
       if (item.id === id) {
         if (item.amount - 1 !== 0) return { ...item, amount: item.amount - 1 };
       }
       if (item.amount === 1 && item.id === id) {
         setOpenModal(true);
-        console.log(openModal);
       }
 
       return item;
     });
     setBasketData(newProducts);
-    console.log(newProducts);
   };
   const handleIncrease = (id) => {
-    const newProducts = basketData.map((item) => {
+    const newProducts = basketData?.basket_products?.map((item) => {
       return item.id === id
         ? { ...item, amount: Number(item.amount) + 1 }
         : item;
     });
     setBasketData(newProducts);
   };
+  console.log(basketData?.basket_products);
 
   return (
     <>
-      <Helmet></Helmet>
+      <Helmet>
+        <title>Sepetim | Güvenli Alışveriş - Nadide Home</title>
+        <meta
+          name="description"
+          content="Seçtiğiniz mobilyaları sepetinize ekleyin ve evinizi Nadide Home ile yeniden şekillendirin."
+        />
+      </Helmet>
 
       <div className="flex flex-col sm:container mx-auto my-6 ">
         <p className="pl-2 mb-4">SEPET DETAYI</p>
@@ -96,11 +100,11 @@ const BasketDetail = () => {
           <BasketSummaryFixed basketData={basketData} />
         </div>
 
-        {basketData.length !== 0 ? (
+        {basketData?.length !== 0 ? (
           <div className="flex ">
             <div className="lg:basis-3/4">
-              {basketData?.map((element, i) => (
-                <>
+              {basketData?.basket_products?.map((element, i) => (
+                <div key={i}>
                   {openModal && (
                     <DeleteBasketModal
                       openModal={openModal}
@@ -123,7 +127,7 @@ const BasketDetail = () => {
                     modalDelete={modalDelete}
                     setOpenModal={setOpenModal}
                   />
-                </>
+                </div>
               ))}
             </div>
             <div className="lg:basis-1/4 md:basis-0 hidden lg:block ">

@@ -3,44 +3,32 @@ import React from "react";
 import { Dropdown } from "flowbite-react";
 
 const BasketSummaryFixed = ({ basketData }) => {
-  // const totalPrice = basketData
-  //   .reduce((accumulator, item) => {
-  //     return accumulator + item.price * item.amount;
-  //   }, 0)
-  //   .toFixed(2)
-  //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  //   .replace(".", ".");
-  const totalPrice = basketData.reduce((accumulator, item) => {
-    return accumulator + item.price * item.amount;
-  }, 0);
-
-  const formattedPriceString = totalPrice.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-
-  const formattedPriceNumber = parseFloat(
-    formattedPriceString.replace(",", ".")
+  const totalPrice = basketData?.basket_products?.reduce(
+    (accumulator, item) => {
+      return accumulator + Number(item.total_price);
+    },
+    0
   );
+  // .toFixed(2);
 
-  console.log(formattedPriceNumber); // Örnek olarak, ekrana 1234.56 şeklinde bir çıktı alırız.
+  // const formattedPriceString = totalPrice.toLocaleString(undefined, {
+  //   minimumFractionDigits: 2,
+  //   maximumFractionDigits: 2,
+  // });
+
+  // const formattedPriceNumber = parseFloat(
+  //   formattedPriceString.replace(",", ".")
+  // );
 
   const taxRatePrice = Number(
-    basketData
-      .reduce((accumulator, item) => {
-        return accumulator + (item.price * item.amount * item.taxRate) / 100;
-      }, 0)
-      .toFixed(2)
-      .replace(",", ".")
+    basketData?.basket_products?.reduce((accumulator, item) => {
+      return accumulator + (Number(item.total_price) * 20) / 100;
+    }, 0)
+    // .toFixed(2)
+    // .replace(",", ".")
   );
-  // console.log(formattedPrice);
-  console.log(taxRatePrice);
-  // .toFixed(2)
-  // .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  // .replace(".", ".");
-  // const { amount, price, taxRate } = dataItem;
 
-  // const taxRatePrice = (price * amount * taxRate) / 100;
+  const total = totalPrice - taxRatePrice;
   return (
     <div className=" flex justify-between sm:container w-full fixed bottom-0 bg-white z-20 mx-auto ">
       <div className="flex items-center w-[50%]   ">
@@ -62,7 +50,7 @@ const BasketSummaryFixed = ({ basketData }) => {
                 <div className="flex justify-between mb-1 ">
                   <span>Ara Toplam</span>
                   <div className="font-bold">
-                    {/* <span>{total} </span> */}
+                    <span>{total} </span>
                     <span>TL</span>
                   </div>
                 </div>
