@@ -40,17 +40,15 @@ div[data-testid="flowbite-dropdown"] {
 .box a {
   color: black;
 }
-.navbar-dropdown{
+/* .navbar-dropdown{
   display: none;
 }
 .navbar-item:hover .navbar-dropdown {
   display: block;
-}
+} */
 
 .box a :hover {
-  /* background-color: white; */
+  background-color: white;
   color: rgb(43, 30, 30);
-/* transition: all; */
+  transition: all;
 }
-
-
