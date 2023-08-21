@@ -34,7 +34,7 @@ const BasketDetail = () => {
     is_membership: true,
   });
 
-  const { register, login } = useContext(UserContext);
+  const { register, getBasket, login } = useContext(CardContext);
 
   useEffect(() => {
     // register(loginData);

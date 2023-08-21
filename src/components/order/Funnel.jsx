@@ -1,9 +1,15 @@
 import React from "react";
 import { SlBasket } from 'react-icons/sl';
+import {useNavigate } from "react-router-dom";
 
-const Funnel = ({ activeTab }) => {
+const Funnel = ({activeTab , setActiveTab}) => {
+  
+  const navigate = useNavigate()
+
+
+
   return (
-    <div className="w-[285px] sm:w-[460px] md:w-[680px]  lg:w-[1000px] md:whitespace-nowrap overflow-hidden">
+    <div className="w-[285px] sm:w-[460px] md:w-[680px]  lg:w-[1000px] md:whitespace-nowrap overflow-hidden ">
       <div className="flex  border-2 gap-2 ">
         <div className="flex justify-center items-center gap-2 text-5xl p-3 lg:flex border-r-2">
           <SlBasket />
@@ -18,7 +24,7 @@ const Funnel = ({ activeTab }) => {
           <span className=" block md:text-5xl font-semibold text-gray-600">
             1.
           </span>
-          <div className="">
+          <div className="cursor-pointer" onClick={()=> setActiveTab(1)} >
             <h2 className="font-medium">TESLİMAT BİLGİLERİ</h2>
             <p className="tracking-tight">Teslimat bilgileri giriniz</p>
           </div>
@@ -32,7 +38,7 @@ const Funnel = ({ activeTab }) => {
           <span className="block md:text-5xl font-semibold text-gray-600">
             2.
           </span>
-          <div className="">
+          <div className="cursor-pointer" onClick={()=> setActiveTab(2)}>
             <h2 className="font-medium">ÖDEME İŞLEMLERİ</h2>
             <p className="tracking-tight">Ödeme bilgileri giriniz</p>
           </div>
@@ -46,7 +52,7 @@ const Funnel = ({ activeTab }) => {
           <span className="block md:text-5xl font-semibold text-gray-600">
             3.
           </span>
-          <div className="">
+          <div className="cursor-pointer">
             <h2 className="font-medium">SİPARİŞ ONAYI</h2>
             <p className="tracking-tight">Siparişinizin Özeti</p>
           </div>
