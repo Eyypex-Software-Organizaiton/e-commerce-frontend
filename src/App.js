@@ -7,12 +7,11 @@ import CardContextProvider from "./context/CardContext";
 function App() {
   return (
     <>
-      {/* <UserContextProvider>
+      <UserContextProvider>
         <CardContextProvider>
-      
-        </CardContextProvider>
-      </UserContextProvider> */}
           <AppRouter />
+        </CardContextProvider>
+      </UserContextProvider>
     </>
   );
 }
