@@ -50,9 +50,7 @@ export default function NavbarWithCTAButton() {
                   </div>
                 </Sidebar.Collapse>
                 <Sidebar.Collapse label="MASALAR">
-                  <Sidebar.Item href="masalar">
-                    MDF MASALAR
-                  </Sidebar.Item>
+                  <Sidebar.Item href="masalar">MDF MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">SUNATLAM MASALAR</Sidebar.Item>
                   <Sidebar.Item href="#">KARE-YUVARLAK MASALAR</Sidebar.Item>
                 </Sidebar.Collapse>
@@ -95,7 +93,7 @@ export default function NavbarWithCTAButton() {
           <Navbar.Link active onClick={() => navigate("/masalar")}>
             <Dropdown inline label="MASALAR">
               <div className="  h-64 bg-slate-100 absolute top-[22px] ">
-                <Dropdown.Item >MDF MASALAR</Dropdown.Item>
+                <Dropdown.Item>MDF MASALAR</Dropdown.Item>
                 <Dropdown.Item>SUNTALAM MASALAR</Dropdown.Item>
                 <Dropdown.Item>KARE YUVARLAK MASALAR</Dropdown.Item>
               </div>
@@ -116,12 +114,12 @@ export default function NavbarWithCTAButton() {
           </Navbar.Link>
           <Navbar.Link
             active
-            onClick={() => navigate("/metal_oturma_takimlari")}
+            onClick={() => navigate("/metal-oturma-takimlari")}
           >
             <Dropdown inline label="METAL OTURMA GRUPLARI"></Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link active onClick={() => navigate("/tv_unitesi")}>
+          <Navbar.Link active onClick={() => navigate("/tv-unitesi")}>
             <Dropdown inline label="TV ÜNİTESİ"></Dropdown>
           </Navbar.Link>
         </div>
