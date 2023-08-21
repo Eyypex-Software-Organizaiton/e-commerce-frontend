@@ -15,10 +15,11 @@ const ProductsList = () => {
     useContext(CardContext);
 
   console.log(dataProduct);
+  
   console.log(dataCategory);
 
   const { slug } = useParams();
-
+console.log(slug);
   const [gridClass, setGridClass] = useState("grid grid-cols-2 md:grid-cols-3");
   const [activeIcon, setActiveIcon] = useState(3);
   const lengthOfData = dataProduct.length;
