@@ -70,7 +70,7 @@ export default function NavbarWithCTAButton() {
         {/* FLEX MENÜ */}
 
         <div className="hidden md:flex  whitespace-nowrap flex-shrink-0  md:text-[8px] lg:text-[10px] xl:text-[14px] navbar-item relative box transition-all ">
-          <Navbar.Link active onClick={() => navigate("/masa_sandalye_takim")}>
+          <Navbar.Link active onClick={() => navigate("/masa-sandalye-takim")}>
             <Dropdown inline label="MASA SANDALYE TAKIMI">
               <div className="h-64 bg-slate-100 absolute top-[22px] ">
                 <Dropdown.Item>AHŞAP AYAKLI TAKIMLAR</Dropdown.Item>
@@ -108,12 +108,12 @@ export default function NavbarWithCTAButton() {
           </Navbar.Link>
           <Navbar.Link
             active
-            onClick={() => navigate("/metal_oturma_takimlari")}
+            onClick={() => navigate("/metal-oturma-takimlari")}
           >
             <Dropdown inline label="METAL OTURMA GRUPLARI"></Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link active onClick={() => navigate("/tv_unitesi")}>
+          <Navbar.Link active onClick={() => navigate("/tv-unitesi")}>
             <Dropdown inline label="TV ÜNİTESİ"></Dropdown>
           </Navbar.Link>
         </div>
