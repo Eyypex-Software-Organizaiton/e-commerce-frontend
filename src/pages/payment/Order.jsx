@@ -15,7 +15,7 @@ const Order = () => {
   
   return (
     <div>
-            <Funnel activeTab={activeTab}/>
+            <Funnel activeTab={activeTab} setActiveTab={setActiveTab}/>
             
             <MainStepper setActiveTab={setActiveTab} activeTab={activeTab}/>
       
