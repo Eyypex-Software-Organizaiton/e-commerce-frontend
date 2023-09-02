@@ -3,16 +3,30 @@ import useAxios from "../hooks/useAxios";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 export const CardContext = createContext();
 
 const CardContextProvider = ({ children }) => {
   const [productsCardData, setProductsCardData] = useState("");
   const [dataProduct, setDataProduct] = useState([]);
-
   const [dataCategory, setDataCategory] = useState([]);
-  const [basketData, setBasketData] = useState({});
+  const [basketData, setBasketData] = useState(
+    JSON.parse(localStorage?.getItem("localData")) || {
+      created_at: "",
+      deleted_at: null,
+      id: 0,
+      is_active: false,
+      is_deleted: false,
+      owner: 0,
+      total_price: "",
+      basket_products: [],
+    }
+  );
 
-  const { axiosWithToken, axiosPublic } = useAxios();
+  console.log(basketData);
+  const { tokenState } = useContext(UserContext);
+  const { axiosWithToken, axiosPublic } = useAxios(tokenState);
 
   //* Sepetten Veri Çekme
   const getBasket = async () => {
@@ -38,10 +52,12 @@ const CardContextProvider = ({ children }) => {
   };
 
   //! Sepetten Veri Silme
-  const deleteBasket = async (aa) => {
-    console.log(aa.amount, aa.product);
+  const deleteBasket = async (product, amount) => {
+    console.log(basketData.amount, basketData.product);
     try {
-      await axiosWithToken.delete("basket/", aa);
+      await axiosWithToken.delete("basket/", {
+        data: { product: product, amount: amount },
+      });
       getBasket();
       // console.log(data);
     } catch (error) {

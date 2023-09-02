@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import DeleteBasketModal from "./DeleteBasketModal";
+import { CardContext } from "../../context/CardContext";
+import { UserContext } from "../../context/UserContext";
 
 const BasketDetailInDetail = ({
   setBasketData,
@@ -12,11 +14,19 @@ const BasketDetailInDetail = ({
   dataItem,
   element,
 }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const { id, img, taxRate, price, amount } = dataItem;
-  const totalPrice = element.total_price;
+  const { deleteBasket, postBasket } = useContext(CardContext);
+  // const { tokenState } = useContext(UserContext);
+  const { total_price, img, product, amount } = element;
+  const taxRate = 18;
   // const taxPrice = price*amount*tax
-  const taxRatePrice = (element.total_price * 18) / 100;
+  const taxRatePrice = (total_price * 18) / 100;
+
+  const deleteFunction = (id, amount) => {
+    // if (tokenState) {
+    //   deleteBasket(id, amount);
+    // }
+    handleDelete(id);
+  };
 
   return (
     <div>
@@ -25,13 +35,13 @@ const BasketDetailInDetail = ({
           <div className="mr-4 flex items-center">
             <img
               className="h-16 w-16 sm:h-28 sm:w-28 md:w-40 md:h-40 xl:w-40 xl:h-40 lg:w-28 lg:h-28  "
-              src={element.img || "/assets/card2.jpeg"}
+              src={img || "/assets/card2.jpeg"}
               alt="orderInBasket"
             />
           </div>
           <div className="flex justify-between items-center w-full relative z-0">
             <div
-              onClick={() => handleDelete(element.product)}
+              onClick={() => deleteFunction(product, amount)}
               className="xs:block lg:hidden absolute top-0 right-0 cursor-pointer "
             >
               ❌
@@ -45,7 +55,7 @@ const BasketDetailInDetail = ({
                   <RiDeleteBin6Line />
                 </div>
                 <button
-                  onClick={() => handleDelete(element.product)}
+                  onClick={() => deleteFunction(product, amount)}
                   className="text-sm "
                 >
                   Sepetten Sil
@@ -55,7 +65,7 @@ const BasketDetailInDetail = ({
 
             <div className="flex mx-2 min-w-[90px] max-w-[100px]">
               <button
-                onClick={() => handleDecrease(element.product)}
+                onClick={() => deleteBasket(product, 1)}
                 className="border-2 p-2"
               >
                 -
@@ -64,14 +74,20 @@ const BasketDetailInDetail = ({
                 <input
                   type="text"
                   name="number"
-                  id={element.product}
-                  value={element.amount}
+                  id={product}
+                  value={amount}
                   className="text-center w-full text-sm border-none"
                 />
               </div>
 
               <button
-                onClick={() => handleIncrease(element.product)}
+                onClick={() =>
+                  postBasket({
+                    ...basketData,
+                    product: product,
+                    amount: 1,
+                  })
+                }
                 className="border-2 p-2"
               >
                 +
@@ -80,11 +96,13 @@ const BasketDetailInDetail = ({
             <div className="text-right xl:text-sm lg:text-xs text-xs my-6">
               <div className="flex flex-col">
                 <div>
-                  <span className="line-through">{totalPrice}</span>
+                  <span className="line-through">{total_price}</span>
                   <span className="">TL</span>
                 </div>
                 <div className="xl:text-lg lg:text-sm">
-                  <span className="font-bold">{totalPrice - taxRatePrice}</span>
+                  <span className="font-bold">
+                    {total_price - taxRatePrice}
+                  </span>
                   <span className="font-bold">TL</span>
                 </div>
               </div>
