@@ -18,7 +18,7 @@ const Card = () => {
             <div className="absolute flex flex-col mx-4  ">
               
                  <h2 className="text-white font-semibold uppercase">{item.name}</h2>
-              <p className="text-gray-700 text-white">{item.text}</p>
+              <p className="text-gray-700">{item.text}</p>
               <button className="bg-white h-10 w-18 hover:shadow-indigo-700/100 hover:scale-105 transition-transform hover:text-blue-300 duration-500 rounded-md  ">{item.button}</button>
               
              
