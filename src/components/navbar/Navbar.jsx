@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import nadidelogo from "./assets/NadideLogo.png";
 import { BsBasket } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { CardContext } from "../../context/CardContext";
 
 const Navbars = () => {
   const navigate = useNavigate();
+  const { basketData } = useContext(CardContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -210,16 +212,18 @@ const Navbars = () => {
         </div>
 
         <div className="hidden md:flex gap-5  text-xl relative">
-          <p className="bg-red-400 rounded-full w-4 h-4 text-center text-xs font-bold absolute bottom-[19px] left-[2px]  z-10">
-            <span>1</span>
-          </p>
+          {basketData?.basket_products?.length > 0 && (
+            <p className="bg-red-400 rounded-full w-4 h-4 text-center text-xs font-bold absolute bottom-[19px] left-[2px]  z-10">
+              <span>{basketData.basket_products.length}</span>
+            </p>
+          )}
+
           <Link to="/sepet">
             <BsBasket className="cursor-pointer" />
           </Link>
           <Link to="/myprofile">
             <BiUser className="cursor-pointer" />
           </Link>
-
           <AiOutlineUserAdd className="cursor-pointer" />
           <BiSearch className="cursor-pointer" />
         </div>
