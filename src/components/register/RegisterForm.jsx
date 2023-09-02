@@ -1,12 +1,9 @@
 import React from 'react'
-import { object, string } from "yup";
-import { Button, Checkbox, Label, Radio, TextInput } from "flowbite-react";
+import { object, string, boolean } from "yup";
+import {  Checkbox, Label,  TextInput } from "flowbite-react";
+import { useState } from 'react';
 
 export const registerSchema = object({
-  name: string()
-    .max(10, "Kullanıcı adı 10 karakterden az olmalıdır.")
-    .required("username girişi zorunludur"),
-
   email: string().email().required("email girişi zorunludur"),
   password1: string()
     .required("password zorunludur")
@@ -24,6 +21,7 @@ export const registerSchema = object({
     .matches(/[a-z]/, "Password bir küçük harf içermelidir")
     .matches(/[A-Z]/, "Password bir büyük harf içermelidir")
     .matches(/[!,?{}><%&$#£+-.]+/, "Password bir özel karakter içermelidir"),
+  remember: boolean().oneOf([true], "Checkbox işaretli olmalıdır"),
 });
 const RegisterForm = ({
   values,
@@ -32,6 +30,11 @@ const RegisterForm = ({
   touched,
   handleBlur,
 }) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <>
       <img
@@ -57,43 +60,53 @@ const RegisterForm = ({
               onBlur={handleBlur}
               error={touched.name && Boolean(errors.name)}
             />
-          
           </div>
 
           <div className="md:flex  block justify-between pr-4 pl-4 items-center  my-2">
             <Label htmlFor="soyadı" value="Soyadı" />
 
             <TextInput id="soyadı" className="w-[330px] " type="text" />
-      
           </div>
           <div className="md:flex  block justify-between pr-4 pl-4 items-center  my-2">
             <Label htmlFor="email" value="E-mail" />
 
             <TextInput id="email" className="w-[330px] " type="email" />
-      
           </div>
 
           <div className="md:flex  block justify-between pr-4 pl-4 items-center  my-2">
             <Label htmlFor="password1" value="Şifre" />
 
             <TextInput id="password1" className="w-[330px] " type="password" />
-       
           </div>
           <div className="md:flex  block justify-between pr-4 pl-4 items-center  my-2">
             <Label htmlFor="password2" value="Şifre Tekrarı" />
 
             <TextInput id="password2" className="w-[330px] " type="password" />
-     
           </div>
+          <p>
+            password en az 8 karakter en fazla 20 bir sayı bir küçük harf bir
+            büyük harf bir özel karakter içermelidir",
+          </p>
         </div>
-        
+
         <div className="m-4  ">
           <div className="my-4">
-            <Checkbox id="remember" />
-            <Label htmlFor="remember" >
+            <input
+              type="checkbox"
+              id="remember"
+              name="remember"
+              checked={values.remember}
+              onChange={handleChange}
+            />
+
+            <Label htmlFor="remember">
               Aydınlatma Metninde Belirtilen ilkeler nezdinde Elektronik Ticaret
               İletisi almak istiyorum
             </Label>
+            <p className="mt-2 text-sm text-green-600 dark:text-black">
+              {" "}
+              {touched.remember && errors.remember}
+            </p>
           </div>
           <div className="my-4">
             <Checkbox id="remember1" />
@@ -108,7 +121,7 @@ const RegisterForm = ({
             </Label>
           </div>
         </div>
-        <div className="bg-red-500 w-72 h-20"></div>
+
         <div className="flex justify-evenly mt-3">
           <button
             type="button"
