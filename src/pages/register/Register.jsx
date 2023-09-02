@@ -6,7 +6,12 @@ const Register = () => {
   return (
     <div className=" flex flex-col justify-center  mx-auto">
       <Formik
-        initialValues={{ name: "", email: "", password1: "", password2: "" }}
+        initialValues={{
+          remember: false,
+          email: "",
+          password1: "",
+          password2: "",
+        }}
         validationSchema={registerSchema}
         onSubmit={(values, actions) => {
           actions.resetForm();

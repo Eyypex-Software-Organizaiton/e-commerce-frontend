@@ -24,9 +24,7 @@ const CardContextProvider = ({ children }) => {
     }
   );
 
-  console.log(basketData);
-  const { tokenState } = useContext(UserContext);
-  const { axiosWithToken, axiosPublic } = useAxios(tokenState);
+  const { axiosWithToken, axiosPublic } = useAxios();
 
   //* Sepetten Veri Çekme
   const getBasket = async () => {
@@ -65,18 +63,24 @@ const CardContextProvider = ({ children }) => {
     }
   };
 
-  const dataFilter = { masalar: 1, sandalyeler: 5 };
+  const dataFilter = {
+    masalar: 1,
+    sandalyeler: 5,
+    bench: "bench",
+    "tv-unitesi": "tv-unitesi",
+    "metal-oturma-takimlari": "metal-oturma-takimlari",
+  };
 
   const getProduct = async (slug) => {
-    // const slug = "sandalyeler";
     try {
       const { data } = await axiosPublic("product/");
-
       const newData = data.data.filter((item) => {
-        // console.log(item.category.parent);
-        return item.category.parent == dataFilter[slug];
+        return item.category.parent == null
+          ? item.category.slug == dataFilter[slug]
+          : item.category.parent == dataFilter[slug];
       });
-      console.log(newData);
+      // console.log(dataFilter[values]);
+      // console.log(dataFilter[slug]);
       setDataProduct(newData);
     } catch (error) {
       console.log(error);
@@ -87,12 +91,11 @@ const CardContextProvider = ({ children }) => {
     try {
       const { data } = await axiosPublic("category/");
       setDataCategory(data);
+      console.log(dataCategory);
     } catch (error) {
       console.log(error);
     }
   };
-
-  console.log(dataFilter);
 
   useEffect(() => {
     getBasket();
