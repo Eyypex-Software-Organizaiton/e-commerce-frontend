@@ -7,13 +7,17 @@ import { useLocation, useParams } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { useContext } from "react";
 import { CardContext } from "../../context/CardContext";
+import { UserContext } from "../../context/UserContext";
 
 const ProductsCard = () => {
-  const { axiosWithToken, axiosPublic } = useAxios();
+  const { axiosPublic } = useAxios();
   const [produc, setProduc] = useState([]);
   const [amountValue, setAmountValue] = useState(1);
-  const { postBasket, basketData, deleteBasket, getBasket } =
+  const { postBasket, basketData, getBasket, setBasketData } =
     useContext(CardContext);
+  const { tokenState } = useContext(UserContext);
+  // const tokenState = "";
+
   const handleAmountChange = (e) => {
     setAmountValue(Number(e.target.value));
   };
@@ -39,15 +43,86 @@ const ProductsCard = () => {
 
   useEffect(() => {
     getProductInfo();
-    getBasket();
-  }, [amountValue]);
+    // getBasket();
+  }, [basketData]);
 
   console.log(produc);
 
+  // const handleInc = (id, price, basket) => {
+  //   const newBasketItem = {
+  //     basket_products: [
+  //       {
+  //         amount: amountValue,
+  //         basket: basket,
+  //         created_at: "",
+  //         deleted_at: null,
+  //         is_active: false,
+  //         is_deleted: false,
+  //         product: id,
+  //         total_price: price * amountValue,
+  //       },
+  //     ],
+  //     created_at: "",
+  //     deleted_at: null,
+  //     id: 0,
+  //     is_active: false,
+  //     is_deleted: false,
+  //     owner: 0,
+  //     total_price: "",
+  //   };
+  //   if (tokenState) {
+  //     postBasket({
+  //       ...basketData,
+  //       product: id,
+  //       amount: amountValue,
+  //     });
+  //   }
+  //   setBasketData({ ...basketData.basket_products, newBasketItem });
+  //   localStorage.setItem(
+  //     "localData",
+  //     JSON.stringify([...basketData, newBasketItem])
+  //   );
+  // };
+  const handleInc = (id, price, basket) => {
+    const newBasketItem = {
+      amount: amountValue,
+      basket: basket,
+      created_at: "",
+      deleted_at: null,
+      is_active: false,
+      is_deleted: false,
+      product: id,
+      total_price: price * amountValue,
+    };
+
+    // if (tokenState) {
+    //   postBasket({
+    //     ...basketData,
+    //     product: id,
+    //     amount: amountValue,
+    //   });
+    // }
+
+    // Şimdi newBasketItem'ı basket_products dizisine eklemek için setBasketData'yı güncelleyelim.
+    setBasketData((prevBasketData) => ({
+      ...prevBasketData,
+      basket_products: [...prevBasketData.basket_products, newBasketItem],
+    }));
+
+    // Localstorrage'da yeni veriyi ekleyelim.
+    localStorage.setItem(
+      "localData",
+      JSON.stringify({
+        ...basketData,
+        basket_products: [...basketData.basket_products, newBasketItem],
+      })
+    );
+  };
+
   return (
     <>
-      {produc.map((item, i) => (
-        <div key={i} className="flex flex-col mx-12 ">
+      {produc.map((item) => (
+        <div key={item.basket} className="flex flex-col mx-12 ">
           <h1 className="text-2xl  mb-4 font-semibold">{item.name}</h1>
           <hr />
           <div className="flex  flex-col text-center ">
@@ -118,25 +193,13 @@ const ProductsCard = () => {
               <p>29 Ağustos2023-9 Eylül 2023</p>
             </div>
             <button
-              onClick={() =>
-                postBasket({
-                  ...basketData,
-                  product: item.id,
-                  amount: amountValue,
-                })
-              }
+              onClick={() => handleInc(item.id, item.price, item.basket)}
               type="button"
               class="text-white flex gap-1 mb-4 mt-4 items-center justify-center py-2 bg-blue-700 h-16 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-[50px] text-sm  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-[100%] m-auto"
             >
               Sepete Ekle <SlBasket />
             </button>
             <button
-              onClick={() =>
-                deleteBasket({
-                  product: item.id,
-                  amount: amountValue,
-                })
-              }
               type="button"
               class="text-white flex  items-center justify-center py-2 gap-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-[50px] text-sm h-16   dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-[100%] m-auto"
             >

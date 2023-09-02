@@ -27,32 +27,37 @@ const BasketDetail = () => {
   const [basketDataMock, setBasketDataMock] = useState(images);
   const [dataItem] = basketDataMock.map((item) => item);
 
-  const [loginData, setLoginData] = useState({
-    email: "fs@fs.com",
-    password: "Aa123456.",
-    kvkk: true,
-    is_membership: true,
-  });
+  const { tokenState } = useContext(UserContext);
 
-  const { register, login } = useContext(UserContext);
-
+  // useEffect(() => {
+  //   login(loginData);
+  // }, [loginData]);
   useEffect(() => {
-    // register(loginData);
-    login(loginData);
+    // if (tokenState) {
+    //   getBasket();
+    // }
+    setBasketData(basketData);
   }, []);
-  useEffect(() => {
-    getBasket();
-  }, []);
-
+  // tokenState
   const handleDelete = (id) => {
     const newProducts = basketData?.basket_products?.filter(
-      (data) => data.id !== id
+      (data) => data.product !== id
     );
-    setBasketData(newProducts);
+    setBasketData({
+      ...basketData,
+      basket_products: newProducts,
+    });
+    localStorage.setItem(
+      "localData",
+      JSON.stringify({
+        ...basketData,
+        basket_products: newProducts,
+      })
+    );
   };
   const modalDelete = (id) => {
     const newProducts = basketData?.basket_products?.filter(
-      (data) => data.id !== id
+      (data) => data.product !== id
     );
     setBasketData(newProducts);
   };
@@ -82,7 +87,6 @@ const BasketDetail = () => {
     });
     setBasketData(newProducts);
   };
-  console.log(basketData?.basket_products);
 
   return (
     <>
@@ -100,7 +104,7 @@ const BasketDetail = () => {
           <BasketSummaryFixed basketData={basketData} />
         </div>
 
-        {basketData?.length !== 0 ? (
+        {basketData?.basket_products.length !== 0 ? (
           <div className="flex ">
             <div className="lg:basis-3/4">
               {basketData?.basket_products?.map((element, i) => (
